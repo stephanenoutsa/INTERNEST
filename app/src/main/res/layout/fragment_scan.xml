@@ -19,7 +19,6 @@
         android:background="@drawable/button_standard_borders"
         android:text="@string/scanner_prompt_text"
         android:id="@+id/scanButton"
-        android:onClick="scanCode"
         android:layout_gravity="center"
         android:textColor="@color/colorTextPrimary" />
 </FrameLayout>

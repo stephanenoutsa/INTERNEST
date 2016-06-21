@@ -10,14 +10,14 @@ import android.widget.TextView;
 /**
  * Created by stephnoutsa on 6/1/16.
  */
-public class Favorites extends Fragment {
+public class MakeCode extends Fragment {
 
-    public Favorites() {
+    public MakeCode() {
         // Required empty constructor
     }
 
-    public static Favorites newInstance() {
-        Favorites fragment = new Favorites();
+    public static MakeCode newInstance() {
+        MakeCode fragment = new MakeCode();
         return fragment;
     }
 
@@ -32,7 +32,7 @@ public class Favorites extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_favorites, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_make_code, container, false);
         textView = (TextView) rootView.findViewById(R.id.textView);
 
         return rootView;

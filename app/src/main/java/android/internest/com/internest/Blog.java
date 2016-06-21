@@ -1,5 +1,6 @@
 package android.internest.com.internest;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -56,6 +57,12 @@ public class Blog extends AppCompatActivity {
     }
 
 
+    ////////////Intents for menu items////////////
+    public void onClickScan() {
+        Intent i = new Intent(this, Scan.class);
+        startActivity(i);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -71,7 +78,8 @@ public class Blog extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.go_to_scan) {
+            onClickScan();
             return true;
         }
 
@@ -98,7 +106,7 @@ public class Blog extends AppCompatActivity {
                 case 1:
                     return Scan.newInstance();
                 case 2:
-                    return Favorites.newInstance();
+                    return MakeCode.newInstance();
                 case 3:
                     return Trending.newInstance();
                 default:
@@ -120,7 +128,7 @@ public class Blog extends AppCompatActivity {
                 case 1:
                     return getResources().getString(R.string.scan_fragment_text);
                 case 2:
-                    return getResources().getString(R.string.favorites_fragment_text);
+                    return getResources().getString(R.string.make_code_fragment_text);
                 case 3:
                     return getResources().getString(R.string.trending_fragment_text);
             }

@@ -19,6 +19,7 @@
         android:background="@drawable/button_standard_borders"
         android:text="@string/scanner_prompt_text"
         android:id="@+id/scanButton"
-        android:layout_gravity="center"
-        android:textColor="@color/colorTextPrimary" />
+        android:textColor="@color/colorTextPrimary"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

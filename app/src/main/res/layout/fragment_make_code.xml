@@ -11,5 +11,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/make_code_fragment_text"
         android:id="@+id/textView"
-        android:layout_gravity="center" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

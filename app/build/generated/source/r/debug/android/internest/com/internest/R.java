@@ -2647,11 +2647,12 @@ containing a value of this type.
         public static final int scan_fragment_text=0x7f070025;
         public static final int scanner_prompt_text=0x7f070026;
         public static final int status_bar_notification_info_overflow=0x7f070013;
-        public static final int text_content_type=0x7f070027;
-        public static final int text_placeholder_text=0x7f070028;
-        public static final int trending_fragment_text=0x7f070029;
-        public static final int url_content_type=0x7f07002a;
-        public static final int url_placeholder_text=0x7f07002b;
+        public static final int submit_error=0x7f070027;
+        public static final int text_content_type=0x7f070028;
+        public static final int text_placeholder_text=0x7f070029;
+        public static final int trending_fragment_text=0x7f07002a;
+        public static final int url_content_type=0x7f07002b;
+        public static final int url_placeholder_text=0x7f07002c;
         public static final int zxing_app_name=0x7f070014;
         public static final int zxing_button_ok=0x7f070015;
         public static final int zxing_msg_camera_framework_bug=0x7f070016;

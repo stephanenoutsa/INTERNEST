@@ -325,6 +325,7 @@
     <string name="scan_fragment_text">SCAN</string>
     <string name="scanner_prompt_text">Scan QR Code</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="submit_error">You must enter some content in order to generate a QR code</string>
     <string name="text_content_type">Text</string>
     <string name="text_placeholder_text">Enter text here</string>
     <string name="trending_fragment_text">TRENDING</string>

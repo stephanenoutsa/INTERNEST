@@ -863,11 +863,12 @@ int string menu_scan 0x7f070024
 int string scan_fragment_text 0x7f070025
 int string scanner_prompt_text 0x7f070026
 int string status_bar_notification_info_overflow 0x7f070013
-int string text_content_type 0x7f070027
-int string text_placeholder_text 0x7f070028
-int string trending_fragment_text 0x7f070029
-int string url_content_type 0x7f07002a
-int string url_placeholder_text 0x7f07002b
+int string submit_error 0x7f070027
+int string text_content_type 0x7f070028
+int string text_placeholder_text 0x7f070029
+int string trending_fragment_text 0x7f07002a
+int string url_content_type 0x7f07002b
+int string url_placeholder_text 0x7f07002c
 int string zxing_app_name 0x7f070014
 int string zxing_button_ok 0x7f070015
 int string zxing_msg_camera_framework_bug 0x7f070016

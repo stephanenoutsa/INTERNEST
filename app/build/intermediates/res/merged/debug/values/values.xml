@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="content_types_array">
+        <item>URL</item>
+        <item>Text</item>
+    </string-array>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
@@ -218,7 +222,7 @@
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="button_standard_height">50dp</dimen>
     <dimen name="button_standard_radius">20dp</dimen>
-    <dimen name="button_standard_width">120dp</dimen>
+    <dimen name="button_standard_width">150dp</dimen>
     <dimen name="design_appbar_elevation">4dp</dimen>
     <dimen name="design_bottom_sheet_modal_elevation">16dp</dimen>
     <dimen name="design_bottom_sheet_modal_peek_height">256dp</dimen>
@@ -310,15 +314,22 @@
     <string name="blog_fragment_text">BLOG</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
+    <string name="choose_content_text">Choose Content Type</string>
     <string name="code_contents">Contents: </string>
     <string name="code_format">\nFormat: </string>
     <string name="empty_scan">Nothing to display</string>
+    <string name="enter_content_text">Enter Content to be Encoded</string>
+    <string name="make_code_button_text">Generate QR Code</string>
     <string name="make_code_fragment_text">MAKE QR CODE</string>
     <string name="menu_scan">Scan</string>
     <string name="scan_fragment_text">SCAN</string>
     <string name="scanner_prompt_text">Scan QR Code</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="text_content_type">Text</string>
+    <string name="text_placeholder_text">Enter text here</string>
     <string name="trending_fragment_text">TRENDING</string>
+    <string name="url_content_type">URL</string>
+    <string name="url_placeholder_text">http://</string>
     <string name="zxing_app_name">Barcode Scanner</string>
     <string name="zxing_button_ok">OK</string>
     <string name="zxing_msg_camera_framework_bug">Sorry, the Android camera encountered a problem. You may need to restart the device.</string>

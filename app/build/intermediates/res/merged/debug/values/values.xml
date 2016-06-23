@@ -327,7 +327,11 @@
     <string name="menu_scan">Scan</string>
     <string name="qr_code_description">Your QR Code</string>
     <string name="save_code_button_text">Save QR Code</string>
+    <string name="save_failure">There was a problem saving the image. Please try again.</string>
+    <string name="save_success">Image saved successfully</string>
     <string name="saved_image_description">INTERNEST SCAN IMAGE</string>
+    <string name="saved_image_directory">INTERNEST-images</string>
+    <string name="saved_image_format">.png</string>
     <string name="saved_image_title_prepend">internest-scan-</string>
     <string name="scan_fragment_text">SCAN</string>
     <string name="scanner_prompt_text">Scan QR Code</string>

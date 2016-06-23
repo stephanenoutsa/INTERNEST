@@ -2404,7 +2404,6 @@ containing a value of this type.
         public static final int appbar=0x7f0e0074;
         public static final int beginning=0x7f0e0038;
         public static final int bottom=0x7f0e0024;
-        public static final int button=0x7f0e0079;
         public static final int buttonPanel=0x7f0e004e;
         public static final int cancel_action=0x7f0e008b;
         public static final int center=0x7f0e0025;
@@ -2476,6 +2475,7 @@ containing a value of this type.
         public static final int qrCode=0x7f0e0078;
         public static final int radio=0x7f0e005e;
         public static final int right=0x7f0e002b;
+        public static final int saveCodeButton=0x7f0e0079;
         public static final int scanButton=0x7f0e0088;
         public static final int screen=0x7f0e002f;
         public static final int scroll=0x7f0e001f;

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="content_types_array">
+        <item>URL</item>
+        <item>Text</item>
+    </string-array>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
@@ -31,11 +35,13 @@
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
     <color name="colorAccent">#A4C639</color>
+    <color name="colorBlack">#000</color>
     <color name="colorPrimary">#4B5320</color>
     <color name="colorPrimaryDark">#414815</color>
     <color name="colorPrimaryLight">#717923</color>
     <color name="colorSelectedTab">#FFF</color>
     <color name="colorTextPrimary">#CCC</color>
+    <color name="colorWhite">#FFF</color>
     <color name="design_fab_shadow_end_color">@android:color/transparent</color>
     <color name="design_fab_shadow_mid_color">#14000000</color>
     <color name="design_fab_shadow_start_color">#44000000</color>
@@ -218,7 +224,7 @@
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="button_standard_height">50dp</dimen>
     <dimen name="button_standard_radius">20dp</dimen>
-    <dimen name="button_standard_width">120dp</dimen>
+    <dimen name="button_standard_width">150dp</dimen>
     <dimen name="design_appbar_elevation">4dp</dimen>
     <dimen name="design_bottom_sheet_modal_elevation">16dp</dimen>
     <dimen name="design_bottom_sheet_modal_peek_height">256dp</dimen>
@@ -254,6 +260,7 @@
     <item format="float" name="highlight_alpha_material_colored" type="dimen">0.26</item>
     <item format="float" name="highlight_alpha_material_dark" type="dimen">0.20</item>
     <item format="float" name="highlight_alpha_material_light" type="dimen">0.12</item>
+    <dimen name="image_standard_dimensions">200dp</dimen>
     <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_max_velocity">800dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_velocity">120dp</dimen>
@@ -305,20 +312,31 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <string name="action_settings">Settings</string>
     <string name="app_name">INTERNEST</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="blog_fragment_text">BLOG</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
+    <string name="choose_content_text">Choose Content Type</string>
     <string name="code_contents">Contents: </string>
     <string name="code_format">\nFormat: </string>
     <string name="empty_scan">Nothing to display</string>
-    <string name="favorites_fragment_text">FAVORITES</string>
+    <string name="enter_content_text">Enter Content to be Encoded</string>
+    <string name="make_code_button_text">Generate QR Code</string>
+    <string name="make_code_fragment_text">MAKE QR CODE</string>
+    <string name="menu_scan">Scan</string>
+    <string name="qr_code_description">Your QR Code</string>
+    <string name="save_code_button_text">Save QR Code</string>
     <string name="scan_fragment_text">SCAN</string>
     <string name="scanner_prompt_text">Scan QR Code</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="submit_error">You must enter some content in order to generate a QR code</string>
+    <string name="text_content_type">Text</string>
+    <string name="text_placeholder_text">Enter text here</string>
+    <string name="title_activity_your_qrcode">Your QR Code</string>
     <string name="trending_fragment_text">TRENDING</string>
+    <string name="url_content_type">URL</string>
+    <string name="url_placeholder_text">http://</string>
     <string name="zxing_app_name">Barcode Scanner</string>
     <string name="zxing_button_ok">OK</string>
     <string name="zxing_msg_camera_framework_bug">Sorry, the Android camera encountered a problem. You may need to restart the device.</string>

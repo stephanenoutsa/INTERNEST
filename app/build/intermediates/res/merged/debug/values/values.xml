@@ -320,6 +320,8 @@
     <string name="choose_content_text">Choose Content Type</string>
     <string name="code_contents">Contents: </string>
     <string name="code_format">\nFormat: </string>
+    <string name="directory_created">Directory created</string>
+    <string name="directory_not_created">Directory not created</string>
     <string name="empty_scan">Nothing to display</string>
     <string name="enter_content_text">Enter Content to be Encoded</string>
     <string name="make_code_button_text">Generate QR Code</string>
@@ -330,7 +332,7 @@
     <string name="save_failure">There was a problem saving the image. Please try again.</string>
     <string name="save_success">Image saved successfully</string>
     <string name="saved_image_description">INTERNEST SCAN IMAGE</string>
-    <string name="saved_image_directory">INTERNEST_Images</string>
+    <string name="saved_image_directory">INTERNEST Images</string>
     <string name="saved_image_format">.png</string>
     <string name="saved_image_title_prepend">internest-scan-</string>
     <string name="scan_fragment_text">SCAN</string>

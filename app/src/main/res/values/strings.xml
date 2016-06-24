@@ -4,7 +4,7 @@
 
     <!-- Start of Fragment Names -->
     <string name="blog_fragment_text">BLOG</string>
-        <string name="scan_fragment_text">SCAN</string>
+    <string name="scan_fragment_text">SCAN</string>
     <string name="make_code_fragment_text">MAKE QR CODE</string>
     <string name="trending_fragment_text">TRENDING</string>
     <!-- End of Fragment Names -->
@@ -16,5 +16,31 @@
     <string name="empty_scan">Nothing to display</string>
     <!-- End of Scan Fragment Literature -->
 
+    <!-- Start of MakeCode Fragment Literature -->
+    <string-array name="content_types_array">
+        <item>URL</item>
+        <item>Text</item>
+    </string-array>
+    <string name="url_content_type">URL</string>
+    <string name="text_content_type">Text</string>
+    <string name="choose_content_text">Choose Content Type</string>
+    <string name="enter_content_text">Enter Content to be Encoded</string>
+    <string name="url_placeholder_text">http://</string>
+    <string name="text_placeholder_text">Enter text here</string>
+    <string name="make_code_button_text">Generate QR Code</string>
+    <string name="submit_error">You must enter some content in order to generate a QR code</string>
+    <!-- End of MakeCode Fragment Literature -->
 
+    <!-- Start of YourQRCode Activity Literature -->
+    <string name="title_activity_your_qrcode">Your QR Code</string>
+    <string name="qr_code_description">Your QR Code</string>
+    <string name="save_code_button_text">Save QR Code</string>
+    <string name="saved_image_title_prepend">internest-scan-</string>
+    <string name="saved_image_description">INTERNEST SCAN IMAGE</string>
+    <string name="saved_image_format">.png</string>
+    <string name="saved_image_directory">INTERNEST Images</string>
+    <string name="save_success">Image saved successfully</string>
+    <string name="filenotfound_error">File not found. Please try again.</string>
+    <string name="io_error">There was an error. Please try again.</string>
+    <!-- End of Your QRCode Activity Literature -->
 </resources>

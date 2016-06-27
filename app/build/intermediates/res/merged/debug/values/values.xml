@@ -320,16 +320,15 @@
     <string name="choose_content_text">Choose Content Type</string>
     <string name="code_contents">Contents: </string>
     <string name="code_format">\nFormat: </string>
-    <string name="directory_created">Directory created</string>
-    <string name="directory_not_created">Directory not created</string>
     <string name="empty_scan">Nothing to display</string>
     <string name="enter_content_text">Enter Content to be Encoded</string>
+    <string name="filenotfound_error">File not found. Please try again.</string>
+    <string name="io_error">There was an error. Please try again.</string>
     <string name="make_code_button_text">Generate QR Code</string>
     <string name="make_code_fragment_text">MAKE QR CODE</string>
     <string name="menu_scan">Scan</string>
     <string name="qr_code_description">Your QR Code</string>
     <string name="save_code_button_text">Save QR Code</string>
-    <string name="save_failure">There was a problem saving the image. Please try again.</string>
     <string name="save_success">Image saved successfully</string>
     <string name="saved_image_description">INTERNEST SCAN IMAGE</string>
     <string name="saved_image_directory">INTERNEST Images</string>
@@ -362,6 +361,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:spinnerItemStyle">@style/MySpinnerItemStyle</item>
+        <item name="android:spinnerDropDownItemStyle">@style/MySpinnerDropDownItemStyle</item>
     </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="AppTheme.NoActionBar">
@@ -1337,6 +1338,18 @@
     <style name="MyOptionsMenuStyle" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:colorBackground">@color/colorPrimaryDark</item>
         <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+    <style name="MySpinnerDropDownItemStyle">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingLeft">10dp</item>
+    </style>
+    <style name="MySpinnerItemStyle">
+        <item name="android:textColor">@color/colorPrimary</item>
     </style>
     <style name="MyTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
         <item name="android:textSize">10dp</item>

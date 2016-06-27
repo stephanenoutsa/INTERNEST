@@ -10,8 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="android.internest.com.internest.YourQRCode"
-    tools:showIn="@layout/activity_your_qrcode"
-    android:onClick="onClickSaveCode">
+    tools:showIn="@layout/activity_your_qrcode">
 
     <ImageView
         android:layout_width="@dimen/image_standard_dimensions"

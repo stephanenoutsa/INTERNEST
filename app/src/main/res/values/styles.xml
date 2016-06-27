@@ -6,6 +6,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:spinnerItemStyle">@style/MySpinnerItemStyle</item>
+        <item name="android:spinnerDropDownItemStyle">@style/MySpinnerDropDownItemStyle</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -20,6 +22,20 @@
     <style name="MyOptionsMenuStyle" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:colorBackground">@color/colorPrimaryDark</item>
         <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+
+    <style name="MySpinnerItemStyle">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="MySpinnerDropDownItemStyle">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingLeft">10dp</item>
     </style>
 
     <style name="MyTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">

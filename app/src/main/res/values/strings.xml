@@ -5,7 +5,7 @@
     <!-- Start of Fragment Names -->
     <string name="blog_fragment_text">BLOG</string>
     <string name="scan_fragment_text">SCAN</string>
-    <string name="make_code_fragment_text">MAKE QR CODE</string>
+    <string name="make_code_fragment_text">GENERATE</string>
     <string name="trending_fragment_text">TRENDING</string>
     <!-- End of Fragment Names -->
 

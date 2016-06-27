@@ -59,7 +59,7 @@ public class Blog extends AppCompatActivity {
 
     ////////////Intents for menu items////////////
     public void onClickScan() {
-        Intent i = new Intent(this, Scan.class);
+        Intent i = new Intent(this, ScanCode.class);
         startActivity(i);
     }
 

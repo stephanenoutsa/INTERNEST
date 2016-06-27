@@ -24,6 +24,10 @@
             android:name=".YourQRCode"
             android:label="@string/title_activity_your_qrcode"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ScanCode"
+            android:label="@string/title_activity_scan_code"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

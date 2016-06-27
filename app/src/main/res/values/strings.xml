@@ -43,4 +43,8 @@
     <string name="filenotfound_error">File not found. Please try again.</string>
     <string name="io_error">There was an error. Please try again.</string>
     <!-- End of Your QRCode Activity Literature -->
+
+    <!-- Start of ScanCode Activity Literature -->
+    <string name="title_activity_scan_code">Scan QR Code</string>
+    <!-- End of ScanCode Activity Literature -->
 </resources>

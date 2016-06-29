@@ -48,7 +48,11 @@
     <string name="title_activity_scan_code">Scan QR Code</string>
     <!-- End of ScanCode Activity Literature -->
 
-    <!-- Start of CaptureActivityPortrait Literature -->
+    <!-- Start of CaptureActivityPortrait Activity Literature -->
     <string name="title_activity_capture_activity_portrait">CaptureActivityPortrait</string>
-    <!-- End of CaptureActivityPortrait Literature -->
+    <!-- End of CaptureActivityPortrait Activity Literature -->
+
+    <!-- Start of URLDisplay Literature -->
+    <string name="title_activity_urldisplay">Internest</string>
+    <!-- End of URLDisplay Activity Literature -->
 </resources>

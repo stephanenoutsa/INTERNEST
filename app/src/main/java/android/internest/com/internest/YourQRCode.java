@@ -1,6 +1,5 @@
 package android.internest.com.internest;
 
-import android.content.ContextWrapper;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;

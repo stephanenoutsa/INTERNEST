@@ -6,6 +6,7 @@ import android.os.Bundle;
 //import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.webkit.URLUtil;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -32,6 +33,8 @@ public class ScanCode extends AppCompatActivity {
 
         IntentIntegrator intentIntegrator = new IntentIntegrator(this);
         intentIntegrator.setPrompt(getResources().getString(R.string.scanner_prompt_text));
+        intentIntegrator.setOrientationLocked(false);
+        intentIntegrator.setCaptureActivity(CaptureActivityPortrait.class);
         intentIntegrator.initiateScan();
     }
 
@@ -45,10 +48,19 @@ public class ScanCode extends AppCompatActivity {
             Toast.makeText(this, codeContents, Toast.LENGTH_LONG).show();*/
 
             String contents = scan.getContents();
-            if (contents.contains(getString(R.string.url_placeholder_text))) {
-                Toast.makeText(this, "It is a url", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Either it is just text, or it is junk", Toast.LENGTH_SHORT).show();
+            if (contents != null) {
+                if (URLUtil.isHttpsUrl(contents) || URLUtil.isHttpUrl(contents)) {
+                    intent = new Intent(this, URLDisplay.class);
+                    intent.putExtra("url", contents);
+                    startActivity(intent);
+                } else {
+                    intent = new Intent(this, TextDisplay.class);
+                    intent.putExtra("text", contents);
+                    startActivity(intent);
+                }
+            }
+            else {
+                finish();
             }
         }
         else {
@@ -56,5 +68,4 @@ public class ScanCode extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
     }
-
 }

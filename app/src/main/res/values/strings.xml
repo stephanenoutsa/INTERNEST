@@ -52,7 +52,11 @@
     <string name="title_activity_capture_activity_portrait">CaptureActivityPortrait</string>
     <!-- End of CaptureActivityPortrait Activity Literature -->
 
-    <!-- Start of URLDisplay Literature -->
+    <!-- Start of URLDisplay Activity Literature -->
     <string name="title_activity_urldisplay">Internest</string>
     <!-- End of URLDisplay Activity Literature -->
+
+    <!-- Start of TextDisplay Activity Literature -->
+    <string name="title_activity_text_display">Internest</string>
+    <!-- End of TextDisplay Activity Literature -->
 </resources>

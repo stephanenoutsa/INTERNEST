@@ -56,6 +56,10 @@
         "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.journeyapps/zxing-android-embedded/3.2.0/res/layout/zxing_barcode_scanner.xml"
     },
     {
+        "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/activity_capture_activity_portrait.xml",
+        "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/layout/activity_capture_activity_portrait.xml"
+    },
+    {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
         "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/abc_activity_chooser_view_list_item.xml"
     },
@@ -222,6 +226,10 @@
     {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/fragment_make_code.xml",
         "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/layout/fragment_make_code.xml"
+    },
+    {
+        "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/content_capture_activity_portrait.xml",
+        "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/layout/content_capture_activity_portrait.xml"
     },
     {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",

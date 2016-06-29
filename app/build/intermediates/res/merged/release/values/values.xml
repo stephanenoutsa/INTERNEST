@@ -34,11 +34,11 @@
     <color name="bright_foreground_material_light">@android:color/black</color>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
-    <color name="colorAccent">#A4C639</color>
+    <color name="colorAccent">#4EBDFF</color>
     <color name="colorBlack">#000</color>
-    <color name="colorPrimary">#4B5320</color>
-    <color name="colorPrimaryDark">#414815</color>
-    <color name="colorPrimaryLight">#717923</color>
+    <color name="colorPrimary">#126390</color>
+    <color name="colorPrimaryDark">#0E4061</color>
+    <color name="colorPrimaryLight">#1A82BF</color>
     <color name="colorSelectedTab">#FFF</color>
     <color name="colorTextPrimary">#CCC</color>
     <color name="colorWhite">#FFF</color>
@@ -312,7 +312,7 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <string name="app_name">INTERNEST</string>
+    <string name="app_name">Internest</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="blog_fragment_text">BLOG</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
@@ -325,7 +325,7 @@
     <string name="filenotfound_error">File not found. Please try again.</string>
     <string name="io_error">There was an error. Please try again.</string>
     <string name="make_code_button_text">Generate QR Code</string>
-    <string name="make_code_fragment_text">MAKE QR CODE</string>
+    <string name="make_code_fragment_text">GENERATE</string>
     <string name="menu_scan">Scan</string>
     <string name="qr_code_description">Your QR Code</string>
     <string name="save_code_button_text">Save QR Code</string>
@@ -340,6 +340,8 @@
     <string name="submit_error">You must enter some content in order to generate a QR code</string>
     <string name="text_content_type">Text</string>
     <string name="text_placeholder_text">Enter text here</string>
+    <string name="title_activity_capture_activity_portrait">CaptureActivityPortrait</string>
+    <string name="title_activity_scan_code">Scan QR Code</string>
     <string name="title_activity_your_qrcode">Your QR Code</string>
     <string name="trending_fragment_text">TRENDING</string>
     <string name="url_content_type">URL</string>
@@ -361,6 +363,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:spinnerItemStyle">@style/MySpinnerItemStyle</item>
+        <item name="android:spinnerDropDownItemStyle">@style/MySpinnerDropDownItemStyle</item>
     </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="AppTheme.NoActionBar">
@@ -1336,6 +1340,18 @@
     <style name="MyOptionsMenuStyle" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:colorBackground">@color/colorPrimaryDark</item>
         <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+    <style name="MySpinnerDropDownItemStyle">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingLeft">10dp</item>
+    </style>
+    <style name="MySpinnerItemStyle">
+        <item name="android:textColor">@color/colorPrimary</item>
     </style>
     <style name="MyTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
         <item name="android:textSize">10dp</item>

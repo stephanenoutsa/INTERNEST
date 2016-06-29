@@ -55,6 +55,10 @@
             android:label="@string/title_activity_scan_code"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name="android.internest.com.internest.CaptureActivityPortrait"
+            android:label="@string/title_activity_capture_activity_portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:clearTaskOnLaunch="true"
             android:screenOrientation="sensorLandscape"

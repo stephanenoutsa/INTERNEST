@@ -37,6 +37,16 @@ public class URLDisplay extends AppCompatActivity {
         webView.loadUrl(url);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, Blog.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(intent);
+    }
+
     ////////////Intents for menu items////////////
     public void onClickScan() {
         Intent i = new Intent(this, ScanCode.class);

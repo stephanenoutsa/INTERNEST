@@ -51,9 +51,9 @@ public class Blog extends AppCompatActivity {
         tabLayout.setTabTextColors(getResources().getColor(R.color.colorTextPrimary),
                 getResources().getColor(R.color.colorSelectedTab));
         tabLayout.getTabAt(0).setIcon(R.drawable.blog);
-        tabLayout.getTabAt(1).setIcon(R.drawable.scan);
-        tabLayout.getTabAt(2).setIcon(R.drawable.favorites);
-        tabLayout.getTabAt(3).setIcon(R.drawable.trending);
+        //tabLayout.getTabAt(1).setIcon(R.drawable.scan);
+        tabLayout.getTabAt(1).setIcon(R.drawable.qr);
+        tabLayout.getTabAt(2).setIcon(R.drawable.trending);
     }
 
 
@@ -103,11 +103,11 @@ public class Blog extends AppCompatActivity {
             switch (position) {
                 case 0:
                     return PlaceholderFragment.newInstance(position + 1);
+                /*case 1:
+                    return Scan.newInstance();*/
                 case 1:
-                    return Scan.newInstance();
-                case 2:
                     return MakeCode.newInstance();
-                case 3:
+                case 2:
                     return Trending.newInstance();
                 default:
                     return PlaceholderFragment.newInstance(position + 1);
@@ -117,7 +117,7 @@ public class Blog extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 4 total pages.
-            return 4;
+            return 3;
         }
 
         @Override
@@ -125,11 +125,11 @@ public class Blog extends AppCompatActivity {
             switch (position) {
                 case 0:
                     return getResources().getString(R.string.blog_fragment_text);
+                /*case 1:
+                    return getResources().getString(R.string.scan_fragment_text);*/
                 case 1:
-                    return getResources().getString(R.string.scan_fragment_text);
-                case 2:
                     return getResources().getString(R.string.make_code_fragment_text);
-                case 3:
+                case 2:
                     return getResources().getString(R.string.trending_fragment_text);
             }
             return null;

@@ -1,6 +1,9 @@
 package android.internest.com.internest;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 //import android.support.design.widget.FloatingActionButton;
 //import android.support.design.widget.Snackbar;
@@ -47,14 +50,35 @@ public class ScanCode extends AppCompatActivity {
             codeContents += scan.getFormatName();
             Toast.makeText(this, codeContents, Toast.LENGTH_LONG).show();*/
 
-            String contents = scan.getContents();
+            final String contents = scan.getContents();
             if (contents != null) {
                 if (URLUtil.isHttpsUrl(contents) || URLUtil.isHttpUrl(contents)) {
-                    intent = new Intent(this, URLDisplay.class);
-                    intent.putExtra("url", contents);
-                    startActivity(intent);
+                    new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_info).
+                            setTitle("Open?").
+                            setMessage("Do you want to open this in your browser?").
+                            setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Uri uri = Uri.parse(contents);
+                                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                                    startActivity(intent);
+                                }
+                            }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(getApplicationContext(), URLDisplay.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                            intent.putExtra("url", contents);
+                            startActivity(intent);
+                        }
+                    }).show();
                 } else {
                     intent = new Intent(this, TextDisplay.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     intent.putExtra("text", contents);
                     startActivity(intent);
                 }

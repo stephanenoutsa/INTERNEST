@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">INTERNEST</string>
+    <string name="app_name">Internest</string>
     <string name="menu_scan">Scan</string>
 
     <!-- Start of Fragment Names -->
@@ -38,7 +38,7 @@
     <string name="saved_image_title_prepend">internest-scan-</string>
     <string name="saved_image_description">INTERNEST SCAN IMAGE</string>
     <string name="saved_image_format">.png</string>
-    <string name="saved_image_directory">INTERNEST Images</string>
+    <string name="saved_image_directory">Internest Images</string>
     <string name="save_success">Image saved successfully</string>
     <string name="filenotfound_error">File not found. Please try again.</string>
     <string name="io_error">There was an error. Please try again.</string>
@@ -47,4 +47,8 @@
     <!-- Start of ScanCode Activity Literature -->
     <string name="title_activity_scan_code">Scan QR Code</string>
     <!-- End of ScanCode Activity Literature -->
+
+    <!-- Start of CaptureActivityPortrait Literature -->
+    <string name="title_activity_capture_activity_portrait">CaptureActivityPortrait</string>
+    <!-- End of CaptureActivityPortrait Literature -->
 </resources>

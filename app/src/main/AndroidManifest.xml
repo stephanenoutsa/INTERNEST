@@ -27,6 +27,10 @@
         <activity
             android:name=".ScanCode"
             android:label="@string/title_activity_scan_code"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CaptureActivityPortrait"
+            android:label="@string/title_activity_capture_activity_portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

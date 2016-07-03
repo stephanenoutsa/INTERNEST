@@ -58,5 +58,6 @@
 
     <!-- Start of TextDisplay Activity Literature -->
     <string name="title_activity_text_display">Internest</string>
+    <string name="text_announcer">The text embedded in the code is:</string>
     <!-- End of TextDisplay Activity Literature -->
 </resources>

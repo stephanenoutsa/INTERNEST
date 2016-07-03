@@ -43,7 +43,7 @@ public class TextDisplay extends AppCompatActivity {
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Magnificent.ttf");
         textAnnouncer.setTypeface(font);
         textDisplayed.setTypeface(font);
-        textAnnouncer.setText(text);
+        textDisplayed.setText(text);
     }
 
     @Override

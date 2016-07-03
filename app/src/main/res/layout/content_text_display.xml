@@ -28,19 +28,16 @@
                 android:layout_marginTop="20dp"
                 android:layout_centerHorizontal="true"
                 android:text="@string/text_announcer"
-                android:id="@+id/textDisplayed"/>
+                android:id="@+id/textAnnouncer"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/textAnnouncer"
-                android:layout_below="@+id/textDisplayed"
+                android:id="@+id/textDisplayed"
+                android:layout_below="@+id/textAnnouncer"
                 android:layout_marginTop="20dp"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_centerHorizontal="true" />
 
         </RelativeLayout>
     </ScrollView>

@@ -1,6 +1,7 @@
 package android.internest.com.internest;
 
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Environment;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
@@ -38,6 +40,10 @@ public class YourQRCode extends AppCompatActivity {
         setContentView(R.layout.activity_your_qrcode);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("");
+        TextView toolbarTitle = (TextView) toolbar.findViewById(R.id.toolbarTitle);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Digory_Doodles_PS.ttf");
+        toolbarTitle.setTypeface(typeface);
         setSupportActionBar(toolbar);
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

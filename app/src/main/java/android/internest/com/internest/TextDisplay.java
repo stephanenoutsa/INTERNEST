@@ -38,10 +38,12 @@ public class TextDisplay extends AppCompatActivity {
 
         text = getIntent().getExtras().getString("text");
 
-        TextView textView = (TextView) findViewById(R.id.textView);
+        TextView textAnnouncer = (TextView) findViewById(R.id.textAnnouncer);
+        TextView textDisplayed = (TextView) findViewById(R.id.textDisplayed);
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Magnificent.ttf");
-        textView.setTypeface(font);
-        textView.setText(text);
+        textAnnouncer.setTypeface(font);
+        textDisplayed.setTypeface(font);
+        textAnnouncer.setText(text);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package android.internest.com.internest;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 //import android.support.design.widget.FloatingActionButton;
 //import android.support.design.widget.Snackbar;
@@ -20,6 +21,10 @@ public class TextDisplay extends AppCompatActivity {
         setContentView(R.layout.activity_text_display);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("");
+        TextView toolbarTitle = (TextView) toolbar.findViewById(R.id.toolbarTitle);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Digory_Doodles_PS.ttf");
+        toolbarTitle.setTypeface(typeface);
         setSupportActionBar(toolbar);
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -34,6 +39,8 @@ public class TextDisplay extends AppCompatActivity {
         text = getIntent().getExtras().getString("text");
 
         TextView textView = (TextView) findViewById(R.id.textView);
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Magnificent.ttf");
+        textView.setTypeface(font);
         textView.setText(text);
     }
 

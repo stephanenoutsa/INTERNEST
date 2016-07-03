@@ -1,6 +1,7 @@
 package android.internest.com.internest;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,6 +13,7 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class Blog extends AppCompatActivity {
 
@@ -36,7 +38,12 @@ public class Blog extends AppCompatActivity {
         setContentView(R.layout.activity_blog);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("");
+        TextView toolbarTitle = (TextView) toolbar.findViewById(R.id.toolbarTitle);
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Digory_Doodles_PS.ttf");
+        toolbarTitle.setTypeface(font);
         setSupportActionBar(toolbar);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());

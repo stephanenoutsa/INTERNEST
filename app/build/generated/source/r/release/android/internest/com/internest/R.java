@@ -2444,7 +2444,6 @@ containing a value of this type.
         public static final int fitCenter=0x7f0e0042;
         public static final int fitXY=0x7f0e0043;
         public static final int fixed=0x7f0e003f;
-        public static final int go_to_s=0x7f0e009f;
         public static final int go_to_scan=0x7f0e009e;
         public static final int home=0x7f0e0004;
         public static final int homeAsUp=0x7f0e0016;

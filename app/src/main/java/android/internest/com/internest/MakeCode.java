@@ -1,6 +1,7 @@
 package android.internest.com.internest;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -25,6 +27,7 @@ public class MakeCode extends Fragment implements AdapterView.OnItemSelectedList
     String placeholder;
     Button makeCodeButton;
     EditText contents;
+    TextView chooseContent, enterContent;
 
     public static MakeCode newInstance() {
         MakeCode fragment = new MakeCode();
@@ -41,6 +44,13 @@ public class MakeCode extends Fragment implements AdapterView.OnItemSelectedList
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_make_code, container, false);
+
+        // Change text font
+        chooseContent = (TextView) rootView.findViewById(R.id.chooseContent);
+        enterContent = (TextView) rootView.findViewById(R.id.enterContent);
+        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Magnificent.ttf");
+        chooseContent.setTypeface(font);
+        enterContent.setTypeface(font);
 
         Spinner spinner = (Spinner) rootView.findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);

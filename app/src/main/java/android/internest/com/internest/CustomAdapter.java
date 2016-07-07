@@ -32,16 +32,39 @@ class CustomAdapter extends ArrayAdapter<Scanned> {
         scanType.setTypeface(font, Typeface.BOLD);
         scanDetails.setTypeface(font);
 
-        scanType.setText(singleScannedItem.getStype());
-        scanDetails.setText(singleScannedItem.getSdetails());
-
         if(singleScannedItem.getStype().equals("url")) {
             scanIcon.setImageResource(R.drawable.link);
+            scanType.setText(R.string.scanned_type_url);
+            scanDetails.setText(singleScannedItem.getSdetails());
         }
         else if(singleScannedItem.getStype().equals("text")) {
             scanIcon.setImageResource(R.drawable.text);
+            scanType.setText(singleScannedItem.getStype());
+
+            String text = singleScannedItem.getSdetails();
+            String trimmed = trimText(text);
+            scanDetails.setText(trimmed);
         }
 
         return customView;
+    }
+
+    public static String trimText(String text) {
+
+        String trimmed = "";
+        int requiredNum = 20;
+        int currentNum = text.length();
+
+        if(requiredNum >= currentNum) {
+            trimmed = text;
+        }
+        else {
+            for(int i = 0; i < requiredNum; i++) {
+                trimmed += text.charAt(i);
+            }
+            trimmed += "...";
+        }
+
+        return trimmed;
     }
 }

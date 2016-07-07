@@ -3120,7 +3120,14 @@
                     "endOffset": 41371
                 },
                 "from": {
-                    "file": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/values/strings.xml"
+                    "file": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 1,
+                        "startColumn": 4,
+                        "startOffset": 16,
+                        "endColumn": 46,
+                        "endOffset": 58
+                    }
                 }
             },
             {
@@ -3432,14 +3439,7 @@
                     "endOffset": 43221
                 },
                 "from": {
-                    "file": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/values/strings.xml",
-                    "position": {
-                        "startLine": 60,
-                        "startColumn": 4,
-                        "startOffset": 2934,
-                        "endColumn": 76,
-                        "endOffset": 3006
-                    }
+                    "file": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/values/strings.xml"
                 }
             },
             {

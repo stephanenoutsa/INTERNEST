@@ -2515,8 +2515,8 @@ containing a value of this type.
         public static final int tabs=0x7f0e0078;
         public static final int text=0x7f0e0099;
         public static final int text2=0x7f0e0097;
-        public static final int textAnnouncer=0x7f0e007b;
-        public static final int textDisplayed=0x7f0e007a;
+        public static final int textAnnouncer=0x7f0e007a;
+        public static final int textDisplayed=0x7f0e007b;
         public static final int textSpacerNoButtons=0x7f0e0057;
         public static final int textView3=0x7f0e008e;
         public static final int time=0x7f0e0095;

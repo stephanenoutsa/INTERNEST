@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Internest</string>
+    <string name="app_name">internest</string>
     <string name="menu_scan">Scan</string>
 
     <!-- Start of Fragment Names -->
@@ -60,4 +60,9 @@
     <string name="title_activity_text_display">Internest</string>
     <string name="text_announcer">The text embedded in the code is:</string>
     <!-- End of TextDisplay Activity Literature -->
+
+    <!-- Start of History Activity Literature -->
+    <string name="title_activity_history">History</string>
+    <string name="scanned_icon_desc">Type of item scanned</string>
+    <!-- End of History Activity Literature -->
 </resources>

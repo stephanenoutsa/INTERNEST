@@ -83,6 +83,12 @@ public class History extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void onClickHistory() {
+        Intent i = new Intent(this, History.class);
+        startActivity(i);
+    }
+    //////////////End of intents//////////////////
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -100,6 +106,11 @@ public class History extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.go_to_scan) {
             onClickScan();
+            return true;
+        }
+
+        if (id == R.id.go_to_history) {
+            onClickHistory();
             return true;
         }
 

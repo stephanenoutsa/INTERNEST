@@ -17,6 +17,8 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class ScanCode extends AppCompatActivity {
 
+    MyDBHandler dbHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +35,8 @@ public class ScanCode extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });*/
+
+        dbHandler = new MyDBHandler(this, null, null, 1);
 
         IntentIntegrator intentIntegrator = new IntentIntegrator(this);
         intentIntegrator.setPrompt(getResources().getString(R.string.scanner_prompt_text));
@@ -53,6 +57,8 @@ public class ScanCode extends AppCompatActivity {
             final String contents = scan.getContents();
             if (contents != null) {
                 if (URLUtil.isHttpsUrl(contents) || URLUtil.isHttpUrl(contents)) {
+                    Scanned scanned = new Scanned("url", contents);
+                    dbHandler.addScanned(scanned);
                     new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_info).
                             setTitle("Open?").
                             setMessage("Do you want to open this in your browser?").
@@ -75,6 +81,8 @@ public class ScanCode extends AppCompatActivity {
                         }
                     }).show();
                 } else {
+                    Scanned scanned = new Scanned("text", contents);
+                    dbHandler.addScanned(scanned);
                     intent = new Intent(this, TextDisplay.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

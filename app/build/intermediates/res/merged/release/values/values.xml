@@ -335,6 +335,7 @@
     <string name="saved_image_format">.png</string>
     <string name="saved_image_title_prepend">internest-scan-</string>
     <string name="scan_fragment_text">SCAN</string>
+    <string name="scanned_icon_desc">Type of item scanned</string>
     <string name="scanner_prompt_text">Scan QR Code</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="submit_error">You must enter some content in order to generate a QR code</string>
@@ -342,6 +343,7 @@
     <string name="text_content_type">Text</string>
     <string name="text_placeholder_text">Enter text here</string>
     <string name="title_activity_capture_activity_portrait">CaptureActivityPortrait</string>
+    <string name="title_activity_history">History</string>
     <string name="title_activity_scan_code">Scan QR Code</string>
     <string name="title_activity_text_display">Internest</string>
     <string name="title_activity_urldisplay">Internest</string>

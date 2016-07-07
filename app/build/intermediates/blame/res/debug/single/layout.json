@@ -24,12 +24,12 @@
         "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/abc_list_menu_item_icon.xml"
     },
     {
-        "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
-        "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/select_dialog_multichoice_material.xml"
-    },
-    {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/activity_urldisplay.xml",
         "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/layout/activity_urldisplay.xml"
+    },
+    {
+        "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
+        "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/select_dialog_multichoice_material.xml"
     },
     {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
@@ -98,6 +98,10 @@
     {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/design_navigation_item_header.xml",
         "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.android.support/design/23.2.1/res/layout/design_navigation_item_header.xml"
+    },
+    {
+        "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/content_history.xml",
+        "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/layout/content_history.xml"
     },
     {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/content_scan_code.xml",
@@ -176,6 +180,10 @@
         "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/layout/fragment_blog.xml"
     },
     {
+        "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/activity_history.xml",
+        "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/layout/activity_history.xml"
+    },
+    {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/notification_media_action.xml",
         "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/notification_media_action.xml"
     },
@@ -230,6 +238,10 @@
     {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml",
         "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/custom_row.xml",
+        "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/layout/custom_row.xml"
     },
     {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/design_layout_tab_icon.xml",

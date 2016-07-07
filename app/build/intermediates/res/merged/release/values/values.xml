@@ -336,6 +336,7 @@
     <string name="saved_image_title_prepend">internest-scan-</string>
     <string name="scan_fragment_text">SCAN</string>
     <string name="scanned_icon_desc">Type of item scanned</string>
+    <string name="scanned_type_url">web link</string>
     <string name="scanner_prompt_text">Scan QR Code</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="submit_error">You must enter some content in order to generate a QR code</string>

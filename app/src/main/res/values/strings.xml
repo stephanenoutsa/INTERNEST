@@ -64,6 +64,8 @@
     <!-- Start of History Activity Literature -->
     <string name="title_activity_history">History</string>
     <string name="scanned_icon_desc">Type of item scanned</string>
-    <string name="scanned_type_url">web link</string>
+    <string name="scanned_type_text">text</string>
+    <string name="scanned_type_url">url</string>
+    <string name="url_simple">web link</string>
     <!-- End of History Activity Literature -->
 </resources>

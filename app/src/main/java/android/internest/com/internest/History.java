@@ -72,23 +72,21 @@ public class History extends AppCompatActivity {
                         new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                TextView scanType = (TextView) findViewById(R.id.scanType);
-                                TextView scanDetails = (TextView) findViewById(R.id.scanDetails);
+                                TextView scanType = (TextView) view.findViewById(R.id.scanType);
+                                TextView scanDetails = (TextView) view.findViewById(R.id.scanDetails);
 
                                 String sType = scanType.getText().toString();
                                 final String sDetails = scanDetails.getText().toString();
 
-                                Intent intent;
-
-                                if (sType.equals("text")) {
-                                    intent = new Intent(context, TextDisplay.class);
+                                if (sType.equals(getString(R.string.scanned_type_text))) {
+                                    Intent intent = new Intent(context, TextDisplay.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                                     intent.putExtra("text", sDetails);
                                     startActivity(intent);
                                 }
-                                else if (sType.equals("url")) {
+                                else if (sType.equals(getString(R.string.url_simple))) {
                                     new AlertDialog.Builder(context).setIcon(android.R.drawable.ic_dialog_info).
                                             setTitle("Open?").
                                             setMessage("Do you want to open this in your browser?").
@@ -97,6 +95,9 @@ public class History extends AppCompatActivity {
                                                 public void onClick(DialogInterface dialog, int which) {
                                                     Uri uri = Uri.parse(sDetails);
                                                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                                                     startActivity(intent);
                                                 }
                                             }).setNegativeButton("No", new DialogInterface.OnClickListener() {

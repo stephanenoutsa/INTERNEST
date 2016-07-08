@@ -48,16 +48,10 @@ public class ScanCode extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         IntentResult scan = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
         if(scan != null) {
-            /*String codeContents = getResources().getString(R.string.code_contents);
-            codeContents += scan.getContents();
-            codeContents += getResources().getString(R.string.code_format);
-            codeContents += scan.getFormatName();
-            Toast.makeText(this, codeContents, Toast.LENGTH_LONG).show();*/
-
             final String contents = scan.getContents();
             if (contents != null) {
                 if (URLUtil.isHttpsUrl(contents) || URLUtil.isHttpUrl(contents)) {
-                    Scanned scanned = new Scanned("url", contents);
+                    Scanned scanned = new Scanned(getString(R.string.scanned_type_url), contents);
                     dbHandler.addScanned(scanned);
                     new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_info).
                             setTitle("Open?").
@@ -67,6 +61,10 @@ public class ScanCode extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
                                     Uri uri = Uri.parse(contents);
                                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                                    intent.putExtra("url", contents);
                                     startActivity(intent);
                                 }
                             }).setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -81,7 +79,7 @@ public class ScanCode extends AppCompatActivity {
                         }
                     }).show();
                 } else {
-                    Scanned scanned = new Scanned("text", contents);
+                    Scanned scanned = new Scanned(getString(R.string.scanned_type_text), contents);
                     dbHandler.addScanned(scanned);
                     intent = new Intent(this, TextDisplay.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

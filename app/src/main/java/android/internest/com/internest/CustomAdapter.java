@@ -32,15 +32,15 @@ class CustomAdapter extends ArrayAdapter<Scanned> {
         scanType.setTypeface(font, Typeface.BOLD);
         scanDetails.setTypeface(font);
 
-        if(singleScannedItem.getStype().equals("url")) {
+        if(singleScannedItem.getStype().equals(getContext().getString(R.string.scanned_type_url))) {
             scanIcon.setImageResource(R.drawable.link);
-            scanType.setText(R.string.scanned_type_url);
+            scanType.setText(R.string.url_simple);
 
             String text = singleScannedItem.getSdetails();
             String trimmed = trimText(text);
             scanDetails.setText(trimmed);
         }
-        else if(singleScannedItem.getStype().equals("text")) {
+        else if(singleScannedItem.getStype().equals(getContext().getString(R.string.scanned_type_text))) {
             scanIcon.setImageResource(R.drawable.text);
             scanType.setText(singleScannedItem.getStype());
 

@@ -35,7 +35,10 @@ class CustomAdapter extends ArrayAdapter<Scanned> {
         if(singleScannedItem.getStype().equals("url")) {
             scanIcon.setImageResource(R.drawable.link);
             scanType.setText(R.string.scanned_type_url);
-            scanDetails.setText(singleScannedItem.getSdetails());
+
+            String text = singleScannedItem.getSdetails();
+            String trimmed = trimText(text);
+            scanDetails.setText(trimmed);
         }
         else if(singleScannedItem.getStype().equals("text")) {
             scanIcon.setImageResource(R.drawable.text);

@@ -5,13 +5,17 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 //import android.support.design.widget.FloatingActionButton;
 //import android.support.design.widget.Snackbar;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 public class TextDisplay extends AppCompatActivity {
+
+    private ShareActionProvider mShareActionProvider;
 
     String text;
 
@@ -66,12 +70,27 @@ public class TextDisplay extends AppCompatActivity {
         Intent i = new Intent(this, History.class);
         startActivity(i);
     }
+
+    public void onClickShare() {
+        Intent i = new Intent();
+        i.setAction(Intent.ACTION_SEND);
+        i.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_link));
+        i.setType("text/plain");
+        startActivity(Intent.createChooser(i, getResources().getText(R.string.share_text)));
+    }
     //////////////End of intents//////////////////
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_blog, menu);
+
+        // Locate MenuItem with ShareActionProvider
+        MenuItem item = menu.findItem(R.id.menu_item_share);
+
+        // Fetch and store ShareActionProvider
+        mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
+
         return true;
     }
 
@@ -90,6 +109,11 @@ public class TextDisplay extends AppCompatActivity {
 
         if (id == R.id.go_to_history) {
             onClickHistory();
+            return true;
+        }
+
+        if (id == R.id.menu_item_share) {
+            onClickShare();
             return true;
         }
 

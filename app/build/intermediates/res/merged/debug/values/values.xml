@@ -327,6 +327,7 @@
     <string name="make_code_button_text">Generate QR Code</string>
     <string name="make_code_fragment_text">GENERATE</string>
     <string name="menu_scan">Scan</string>
+    <string name="menu_share">Share</string>
     <string name="qr_code_description">Your QR Code</string>
     <string name="save_code_button_text">Save QR Code</string>
     <string name="save_success">Image saved successfully</string>
@@ -339,6 +340,8 @@
     <string name="scanned_type_text">text</string>
     <string name="scanned_type_url">url</string>
     <string name="scanner_prompt_text">Scan QR Code</string>
+    <string name="share_link">http://www.google.com</string>
+    <string name="share_text">Share app to..</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="submit_error">You must enter some content in order to generate a QR code</string>
     <string name="text_announcer">The text embedded in the code is:</string>

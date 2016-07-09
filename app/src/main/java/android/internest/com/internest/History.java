@@ -11,7 +11,9 @@ import android.os.Bundle;
 //import android.support.design.widget.Snackbar;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +27,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class History extends AppCompatActivity {
+
+    private ShareActionProvider mShareActionProvider;
 
     MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
     List<Scanned> scannedList;
@@ -139,12 +143,27 @@ public class History extends AppCompatActivity {
         Intent i = new Intent(this, History.class);
         startActivity(i);
     }
+
+    public void onClickShare() {
+        Intent i = new Intent();
+        i.setAction(Intent.ACTION_SEND);
+        i.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_link));
+        i.setType("text/plain");
+        startActivity(Intent.createChooser(i, getResources().getText(R.string.share_text)));
+    }
     //////////////End of intents//////////////////
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_blog, menu);
+
+        // Locate MenuItem with ShareActionProvider
+        MenuItem item = menu.findItem(R.id.menu_item_share);
+
+        // Fetch and store ShareActionProvider
+        mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
+
         return true;
     }
 
@@ -163,6 +182,11 @@ public class History extends AppCompatActivity {
 
         if (id == R.id.go_to_history) {
             onClickHistory();
+            return true;
+        }
+
+        if (id == R.id.menu_item_share) {
+            onClickShare();
             return true;
         }
 

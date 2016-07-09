@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">internest</string>
     <string name="menu_scan">Scan</string>
+    <string name="menu_share">Share</string>
+    <string name="share_link">http://www.google.com</string>
+    <string name="share_text">Share app to..</string>
 
     <!-- Start of Fragment Names -->
     <string name="blog_fragment_text">BLOG</string>

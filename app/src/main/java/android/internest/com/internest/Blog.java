@@ -3,7 +3,9 @@ package android.internest.com.internest;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
@@ -26,6 +28,8 @@ public class Blog extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
+    private ShareActionProvider mShareActionProvider;
+
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -74,12 +78,27 @@ public class Blog extends AppCompatActivity {
         Intent i = new Intent(this, History.class);
         startActivity(i);
     }
+
+    public void onClickShare() {
+        Intent i = new Intent();
+        i.setAction(Intent.ACTION_SEND);
+        i.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_link));
+        i.setType("text/plain");
+        startActivity(Intent.createChooser(i, getResources().getText(R.string.share_text)));
+    }
     //////////////End of intents//////////////////
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_blog, menu);
+
+        // Locate MenuItem with ShareActionProvider
+        MenuItem item = menu.findItem(R.id.menu_item_share);
+
+        // Fetch and store ShareActionProvider
+        mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
+
         return true;
     }
 
@@ -98,6 +117,11 @@ public class Blog extends AppCompatActivity {
 
         if (id == R.id.go_to_history) {
             onClickHistory();
+            return true;
+        }
+
+        if (id == R.id.menu_item_share) {
+            onClickShare();
             return true;
         }
 

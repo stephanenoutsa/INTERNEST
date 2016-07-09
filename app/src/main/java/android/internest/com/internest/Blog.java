@@ -40,7 +40,7 @@ public class Blog extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("");
         TextView toolbarTitle = (TextView) toolbar.findViewById(R.id.toolbarTitle);
-        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Digory_Doodles_PS.ttf");
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Amsterdrum_Grotesk.ttf");
         toolbarTitle.setTypeface(font);
         setSupportActionBar(toolbar);
 

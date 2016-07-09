@@ -24,7 +24,7 @@ public class URLDisplay extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("");
         TextView toolbarTitle = (TextView) toolbar.findViewById(R.id.toolbarTitle);
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Digory_Doodles_PS.ttf");
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Amsterdrum_Grotesk.ttf");
         toolbarTitle.setTypeface(typeface);
         setSupportActionBar(toolbar);
 

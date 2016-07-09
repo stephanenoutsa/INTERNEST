@@ -20,5 +20,10 @@
         android:title="@string/menu_share"
         android:actionProviderClass=
             "android.widget.ShareActionProvider" />
+    <item
+        android:id="@+id/go_to_contact"
+        android:orderInCategory="4"
+        android:title="@string/menu_contact"
+        app:showAsAction="never" />
 
 </menu>

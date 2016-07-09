@@ -86,6 +86,10 @@ public class Blog extends AppCompatActivity {
         i.setType("text/plain");
         startActivity(Intent.createChooser(i, getResources().getText(R.string.share_text)));
     }
+
+    public void onClickContact() {
+
+    }
     //////////////End of intents//////////////////
 
     @Override
@@ -122,6 +126,11 @@ public class Blog extends AppCompatActivity {
 
         if (id == R.id.menu_item_share) {
             onClickShare();
+            return true;
+        }
+
+        if (id == R.id.go_to_contact) {
+            onClickContact();
             return true;
         }
 

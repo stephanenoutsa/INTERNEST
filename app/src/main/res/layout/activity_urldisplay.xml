@@ -24,9 +24,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/title_activity_text_display"
+                android:textSize="30sp"
                 android:id="@+id/toolbarTitle"/>
 
         </android.support.v7.widget.Toolbar>

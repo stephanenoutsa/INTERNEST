@@ -326,6 +326,7 @@
     <string name="io_error">There was an error. Please try again.</string>
     <string name="make_code_button_text">Generate QR Code</string>
     <string name="make_code_fragment_text">GENERATE</string>
+    <string name="menu_contact">Contact Us</string>
     <string name="menu_scan">Scan</string>
     <string name="menu_share">Share</string>
     <string name="qr_code_description">Your QR Code</string>

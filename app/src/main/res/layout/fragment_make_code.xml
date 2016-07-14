@@ -58,6 +58,7 @@
                 android:inputType="textMultiLine"
                 android:ems="10"
                 android:id="@+id/contents"
+                android:textColor="@color/colorBlack"
                 android:layout_below="@+id/enterContent"
                 android:layout_marginTop="20dp"
                 android:layout_centerHorizontal="true" />

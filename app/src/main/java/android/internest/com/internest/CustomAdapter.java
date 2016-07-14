@@ -30,7 +30,9 @@ class CustomAdapter extends ArrayAdapter<Scanned> {
 
         Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Magnificent.ttf");
         scanType.setTypeface(font, Typeface.BOLD);
+        scanType.setTextColor(customView.getResources().getColor(R.color.colorBlack));
         scanDetails.setTypeface(font);
+        scanDetails.setTextColor(customView.getResources().getColor(R.color.colorBlack));
 
         if(singleScannedItem.getStype().equals(getContext().getString(R.string.scanned_type_url))) {
             scanIcon.setImageResource(R.drawable.link);

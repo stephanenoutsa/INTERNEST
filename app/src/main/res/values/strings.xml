@@ -13,6 +13,10 @@
     <string name="trending_fragment_text">TRENDING</string>
     <!-- End of Fragment Names -->
 
+    <!-- Start of Blog Fragment Literature -->
+    <string name="blog_thumb_desc">Post Thumbnail</string>
+    <!-- End of Blog Fragment Literature -->
+
     <!-- Start of Scan Fragment Literature -->
     <string name="scanner_prompt_text">Scan QR Code</string>
     <string name="code_contents">Contents: </string>

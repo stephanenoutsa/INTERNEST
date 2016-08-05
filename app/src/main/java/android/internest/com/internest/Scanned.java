@@ -27,6 +27,7 @@ public class Scanned {
         this.sdetails = sdetails;
     }
 
+    // Getter and Setter methods
     public int get_sid() {
         return _sid;
     }

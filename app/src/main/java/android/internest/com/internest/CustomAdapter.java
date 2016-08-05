@@ -2,6 +2,7 @@ package android.internest.com.internest;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,9 +31,9 @@ class CustomAdapter extends ArrayAdapter<Scanned> {
 
         Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Magnificent.ttf");
         scanType.setTypeface(font, Typeface.BOLD);
-        scanType.setTextColor(customView.getResources().getColor(R.color.colorBlack));
+        scanType.setTextColor(ContextCompat.getColor(getContext(), R.color.colorBlack));
         scanDetails.setTypeface(font);
-        scanDetails.setTextColor(customView.getResources().getColor(R.color.colorBlack));
+        scanDetails.setTextColor(ContextCompat.getColor(getContext(), R.color.colorBlack));
 
         if(singleScannedItem.getStype().equals(getContext().getString(R.string.scanned_type_url))) {
             scanIcon.setImageResource(R.drawable.link);

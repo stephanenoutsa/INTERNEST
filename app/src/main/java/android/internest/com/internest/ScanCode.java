@@ -49,12 +49,14 @@ public class ScanCode extends AppCompatActivity {
         IntentResult scan = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
         if(scan != null) {
             final String contents = scan.getContents();
+
+            Trend trend = new Trend(contents);
+            dbHandler.addTrend(getApplicationContext(), trend);
+
             if (contents != null) {
                 if (URLUtil.isHttpsUrl(contents) || URLUtil.isHttpUrl(contents)) {
                     Scanned scanned = new Scanned(getString(R.string.scanned_type_url), contents);
                     dbHandler.addScanned(scanned);
-                    Trend trend = new Trend(contents);
-                    dbHandler.addTrend(getApplicationContext(), trend);
                     new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_info).
                             setTitle("Open?").
                             setMessage("Do you want to open this in your browser?").

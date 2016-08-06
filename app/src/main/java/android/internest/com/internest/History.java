@@ -89,8 +89,7 @@ public class History extends AppCompatActivity {
                                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                                     intent.putExtra("text", sDetails);
                                     startActivity(intent);
-                                }
-                                else if (sType.equals(getString(R.string.url_simple))) {
+                                } else if (sType.equals(getString(R.string.url_simple))) {
                                     new AlertDialog.Builder(context).setIcon(android.R.drawable.ic_dialog_info).
                                             setTitle("Open?").
                                             setMessage("Do you want to open this in your browser?").
@@ -116,6 +115,37 @@ public class History extends AppCompatActivity {
                                         }
                                     }).show();
                                 }
+                            }
+                        }
+                );
+
+                listView.setOnItemLongClickListener(
+                        new AdapterView.OnItemLongClickListener() {
+                            @Override
+                            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                                Scanned scanned = (Scanned) parent.getItemAtPosition(position);
+                                final String _sid = "\'" + scanned.get_sid() + "\'";
+                                new AlertDialog.Builder(context).setIcon(android.R.drawable.ic_menu_delete).
+                                        setTitle(R.string.delete_title).
+                                        setMessage(R.string.delete_warning).
+                                        setPositiveButton(R.string.delete_ok, new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                dbHandler.deleteScanned(_sid);
+                                                Intent intent = new Intent(History.this, History.class);
+                                                finish();
+                                                overridePendingTransition(0, 0);
+                                                startActivity(intent);
+                                                overridePendingTransition(0, 0);
+                                            }
+                                        }).setNegativeButton(R.string.delete_cancel, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                    }
+                                }).show();
+
+                                return true;
                             }
                         }
                 );

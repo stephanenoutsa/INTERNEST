@@ -90,30 +90,12 @@ public class History extends AppCompatActivity {
                                     intent.putExtra("text", sDetails);
                                     startActivity(intent);
                                 } else if (sType.equals(getString(R.string.url_simple))) {
-                                    new AlertDialog.Builder(context).setIcon(android.R.drawable.ic_dialog_info).
-                                            setTitle("Open?").
-                                            setMessage("Do you want to open this in your browser?").
-                                            setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                                                @Override
-                                                public void onClick(DialogInterface dialog, int which) {
-                                                    Uri uri = Uri.parse(sDetails);
-                                                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                                                    startActivity(intent);
-                                                }
-                                            }).setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            Intent intent = new Intent(getApplicationContext(), URLDisplay.class);
-                                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                                            intent.putExtra("url", sDetails);
-                                            startActivity(intent);
-                                        }
-                                    }).show();
+                                    Intent intent = new Intent(getApplicationContext(), URLDisplay.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                                    intent.putExtra("url", sDetails);
+                                    startActivity(intent);
                                 }
                             }
                         }

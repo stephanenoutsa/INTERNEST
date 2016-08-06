@@ -18,7 +18,7 @@ public class URLDisplay extends AppCompatActivity {
 
     private ShareActionProvider mShareActionProvider;
 
-    String url;
+    String url, previous = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,7 @@ public class URLDisplay extends AppCompatActivity {
         });*/
 
         url = getIntent().getExtras().getString("url");
+        previous = getIntent().getExtras().getString("previous");
 
         WebView webView = (WebView) findViewById(R.id.webView);
         webView.loadUrl(url);
@@ -50,11 +51,13 @@ public class URLDisplay extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(this, Blog.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(intent);
+        if (previous.equals("blog")) {
+            Intent intent = new Intent(this, Blog.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
+        }
     }
 
     ////////////Intents for menu items////////////

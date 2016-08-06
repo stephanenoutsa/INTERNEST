@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 //import android.support.design.widget.FloatingActionButton;
 //import android.support.design.widget.Snackbar;
@@ -84,17 +83,13 @@ public class History extends AppCompatActivity {
 
                                 if (sType.equals(getString(R.string.scanned_type_text))) {
                                     Intent intent = new Intent(context, TextDisplay.class);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                                     intent.putExtra("text", sDetails);
+                                    intent.putExtra("previous", "history");
                                     startActivity(intent);
                                 } else if (sType.equals(getString(R.string.url_simple))) {
                                     Intent intent = new Intent(getApplicationContext(), URLDisplay.class);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                                     intent.putExtra("url", sDetails);
+                                    intent.putExtra("previous", "history");
                                     startActivity(intent);
                                 }
                             }

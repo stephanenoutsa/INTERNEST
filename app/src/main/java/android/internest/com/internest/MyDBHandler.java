@@ -117,6 +117,19 @@ public class MyDBHandler extends SQLiteOpenHelper {
         }
     }
 
+    // Delete a scanned item
+    public void deleteScanned(String id) {
+        String query = "DELETE FROM " + TABLE_SCANNED + " WHERE " + SCANNED_COLUMN_ID + " = " + id + ";";
+        SQLiteDatabase db = this.getWritableDatabase();
+        try {
+            db.execSQL(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            db.close();
+        }
+    }
+
     // Add a new post to the Post table
     public void addPost(Post post) {
         ContentValues values = new ContentValues();

@@ -53,6 +53,8 @@ public class ScanCode extends AppCompatActivity {
                 if (URLUtil.isHttpsUrl(contents) || URLUtil.isHttpUrl(contents)) {
                     Scanned scanned = new Scanned(getString(R.string.scanned_type_url), contents);
                     dbHandler.addScanned(scanned);
+                    Trend trend = new Trend(contents);
+                    dbHandler.addTrend(getApplicationContext(), trend);
                     new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_info).
                             setTitle("Open?").
                             setMessage("Do you want to open this in your browser?").

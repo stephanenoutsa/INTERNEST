@@ -24,12 +24,12 @@
         "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/abc_list_menu_item_icon.xml"
     },
     {
-        "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/activity_urldisplay.xml",
-        "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/layout/activity_urldisplay.xml"
-    },
-    {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
         "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res/layout/select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/activity_urldisplay.xml",
+        "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/layout/activity_urldisplay.xml"
     },
     {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",

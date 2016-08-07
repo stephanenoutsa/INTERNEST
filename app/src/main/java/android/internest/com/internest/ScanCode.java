@@ -48,7 +48,7 @@ public class ScanCode extends AppCompatActivity {
             final String contents = scan.getContents();
 
             Trend trend = new Trend(contents);
-            dbHandler.addTrend(getApplicationContext(), trend);
+            dbHandler.addTrend(trend);
 
             if (contents != null) {
                 if (URLUtil.isHttpsUrl(contents) || URLUtil.isHttpUrl(contents)) {

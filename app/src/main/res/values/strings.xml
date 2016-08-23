@@ -2,12 +2,13 @@
     <string name="app_name">internest</string>
     <string name="menu_scan">Scan</string>
     <string name="menu_share">Share</string>
-    <string name="share_link">http://www.google.com</string>
+    <string name="share_link">https://play.google.com/store/apps/details?id=android.internest.com.internest</string>
     <string name="share_text">Share app to..</string>
+    <string name="menu_points">Points Promo</string>
     <string name="menu_contact">Contact Us</string>
 
     <!-- Start of Fragment Names -->
-    <string name="blog_fragment_text">BLOG</string>
+    <string name="blog_fragment_text">TRACKER</string>
     <string name="scan_fragment_text">SCAN</string>
     <string name="make_code_fragment_text">GENERATE</string>
     <string name="trending_fragment_text">TRENDING</string>

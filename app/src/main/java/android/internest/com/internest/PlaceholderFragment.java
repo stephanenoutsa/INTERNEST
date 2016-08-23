@@ -13,7 +13,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -79,6 +78,7 @@ public class PlaceholderFragment extends Fragment {
                         String url = post.getPurl();
                         Intent intent = new Intent(getContext(), URLDisplay.class);
                         intent.putExtra("url", url);
+                        intent.putExtra("previous", "blog");
                         startActivity(intent);
                     }
                 });

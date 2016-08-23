@@ -356,6 +356,7 @@
     <string name="text_content_type">Text</string>
     <string name="text_placeholder_text">Enter text here</string>
     <string name="title_activity_capture_activity_portrait">CaptureActivityPortrait</string>
+    <string name="title_activity_contact_us">Contact Us</string>
     <string name="title_activity_history">History</string>
     <string name="title_activity_scan_code">Scan QR Code</string>
     <string name="title_activity_text_display">Internest</string>

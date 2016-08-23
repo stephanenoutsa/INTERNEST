@@ -83,7 +83,8 @@ public class TextDisplay extends AppCompatActivity {
     }
 
     public void onClickContact() {
-
+        Intent i = new Intent(this, ContactUs.class);
+        startActivity(i);
     }
     //////////////End of intents//////////////////
 

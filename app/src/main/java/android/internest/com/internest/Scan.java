@@ -8,15 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-/**
- * Created by stephnoutsa on 6/1/16.
- */
 public class Scan extends Fragment {
     Context context = getContext();
 
@@ -35,7 +31,6 @@ public class Scan extends Fragment {
     }
 
     Button scanButton;
-    TextView scanText;
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         IntentResult scan = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);

@@ -101,9 +101,13 @@ public class SignUp extends AppCompatActivity {
     }
 
     public void onClickPoints() {
+        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
+        User user = dbHandler.getUser();
+        String email = user.getEmail();
+        String dob = user.getDob();
         Intent i;
-        if (true) {
-            i = new Intent(this, PointsPromo.class);
+        if (email.equals("null") || dob.equals("null")) {
+            i = new Intent(this, SignUp.class);
         }
         else {
             i = new Intent(this, PointsPromo.class);

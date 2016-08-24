@@ -3,7 +3,6 @@ package android.internest.com.internest;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.app.Activity;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ShareActionProvider;
@@ -48,6 +47,22 @@ public class PointsPromo extends AppCompatActivity {
         startActivity(Intent.createChooser(i, getResources().getText(R.string.share_text)));
     }
 
+    public void onClickPoints() {
+        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
+        User user = dbHandler.getUser();
+        String email = user.getEmail();
+        String dob = user.getDob();
+        Intent i;
+        if (email.equals("null") || dob.equals("null")) {
+            i = new Intent(this, SignUp.class);
+        }
+        else {
+            i = new Intent(this, PointsPromo.class);
+        }
+
+        startActivity(i);
+    }
+
     public void onClickContact() {
         Intent i = new Intent(this, ContactUs.class);
         startActivity(i);
@@ -88,6 +103,11 @@ public class PointsPromo extends AppCompatActivity {
 
         if (id == R.id.menu_item_share) {
             onClickShare();
+            return true;
+        }
+
+        if (id == R.id.go_to_points) {
+            onClickPoints();
             return true;
         }
 

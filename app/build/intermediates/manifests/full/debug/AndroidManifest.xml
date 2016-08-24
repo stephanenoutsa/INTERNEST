@@ -76,6 +76,10 @@
             android:label="@string/title_activity_contact_us"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name="android.internest.com.internest.PointsPromo"
+            android:label="@string/title_activity_points_promo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:clearTaskOnLaunch="true"
             android:screenOrientation="sensorLandscape"

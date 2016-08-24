@@ -89,4 +89,8 @@
     <!-- Start of Points Promo Activity Literature -->
     <string name="title_activity_points_promo">Points Promo</string>
     <!-- End of Points Promo Activity Literature -->
+
+    <!-- Start of SignUp Activity Literature -->
+    <string name="title_activity_sign_up">Sign Up</string>
+    <!-- End of SignUp Activity Literature -->
 </resources>

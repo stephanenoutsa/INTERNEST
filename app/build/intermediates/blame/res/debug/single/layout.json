@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/activity_points_promo.xml",
+        "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/layout/activity_points_promo.xml"
+    },
+    {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/fragment_trending.xml",
         "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/layout/fragment_trending.xml"
     },
@@ -34,6 +38,10 @@
     {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
         "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/res/layout/design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/content_points_promo.xml",
+        "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/layout/content_points_promo.xml"
     },
     {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",

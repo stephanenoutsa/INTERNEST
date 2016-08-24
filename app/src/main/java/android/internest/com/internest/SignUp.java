@@ -9,11 +9,21 @@ import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SignUp extends AppCompatActivity {
 
     private ShareActionProvider mShareActionProvider;
+
+    MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
+    TextView emailText;
+    EditText emailInput;
+    TextView dobText;
+    EditText dobInput;
+    String email, dob;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +36,49 @@ public class SignUp extends AppCompatActivity {
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Amsterdrum_Grotesk.ttf");
         toolbarTitle.setTypeface(typeface);
         setSupportActionBar(toolbar);
+
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Magnificent.ttf");
+        emailText = (TextView) findViewById(R.id.emailText);
+        emailText.setTypeface(font);
+        emailInput = (EditText) findViewById(R.id.emailInput);
+        dobText = (TextView) findViewById(R.id.dobText);
+        dobText.setTypeface(font);
+        dobInput = (EditText) findViewById(R.id.dobInput);
+
+    }
+
+    // Create user account
+    public void onClickCreate(View view) {
+        email = emailInput.getText().toString();
+        dob = dobInput.getText().toString();
+
+        if (validate(email, dob)) {
+            User user = new User(email, dob);
+            dbHandler.addUser(user);
+            Toast.makeText(this, getString(R.string.user_created), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // Validate the form
+    public boolean validate(String email, String dob) {
+        boolean valid = true;
+
+        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            emailInput.setError(getString(R.string.email_incorrect));
+            valid = false;
+        } else {
+            emailInput.setError(null);
+        }
+
+        if (dob.isEmpty() || dob.length() != 8) {
+            dobInput.setError(getString(R.string.dob_incorrect));
+            valid = false;
+        }
+        else {
+            dobInput.setError(null);
+        }
+
+        return valid;
     }
 
     ////////////Intents for menu items////////////

@@ -92,5 +92,13 @@
 
     <!-- Start of SignUp Activity Literature -->
     <string name="title_activity_sign_up">Sign Up</string>
+    <string name="email_label">Email:</string>
+    <string name="email_hint">Enter email address here</string>
+    <string name="email_incorrect">Enter a valid email address</string>
+    <string name="dob_label">Date of Birth:</string>
+    <string name="dob_hint">Enter date of birth here</string>
+    <string name="dob_incorrect">Enter a valid date</string>
+    <string name="create_account">Create Account</string>
+    <string name="user_created">Account created</string>
     <!-- End of SignUp Activity Literature -->
 </resources>

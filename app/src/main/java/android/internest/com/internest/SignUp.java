@@ -73,12 +73,18 @@ public class SignUp extends AppCompatActivity {
             emailInput.setError(null);
         }
 
-        if (dob.isEmpty() || dob.length() != 8) {
-            dobInput.setError(getString(R.string.dob_incorrect));
-            valid = false;
+        boolean a = dob.matches("\\d\\d/\\d\\d/\\d\\d");
+        boolean b = dob.matches("\\d\\d/\\d\\d/\\d\\d\\d\\d");
+        boolean c = dob.matches("\\d\\d\\.\\d\\d\\.\\d\\d");
+        boolean d = dob.matches("\\d\\d\\.\\d\\d\\.\\d\\d\\d\\d");
+        boolean e = dob.matches("\\d\\d-\\d\\d-\\d\\d");
+        boolean f = dob.matches("\\d\\d-\\d\\d-\\d\\d\\d\\d");
+        if (a || b || c || d || e || f ) {
+            dobInput.setError(null);
         }
         else {
-            dobInput.setError(null);
+            dobInput.setError(getString(R.string.dob_incorrect));
+            valid = false;
         }
 
         return valid;

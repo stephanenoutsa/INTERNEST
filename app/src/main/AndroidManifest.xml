@@ -49,6 +49,10 @@
             android:name=".ContactUs"
             android:label="@string/title_activity_contact_us"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PointsPromo"
+            android:label="@string/title_activity_points_promo"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

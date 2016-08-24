@@ -85,4 +85,8 @@
     <!-- Start of Contact Us Activity Literature -->
     <string name="title_activity_contact_us">Contact Us</string>
     <!-- End of Contact Us Activity Literature -->
+
+    <!-- Start of Points Promo Activity Literature -->
+    <string name="title_activity_points_promo">Points Promo</string>
+    <!-- End of Points Promo Activity Literature -->
 </resources>

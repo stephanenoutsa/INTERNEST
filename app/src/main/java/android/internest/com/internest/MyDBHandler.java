@@ -5,7 +5,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.Cursor;
 import android.content.Context;
 import android.content.ContentValues;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,6 +26,10 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String TABLE_TRENDS = "trends";
     public static final String TRENDS_COLUMN_ID = "_tid";
     public static final String TRENDS_COLUMN_COUNT = "tcount";
+    public static final String TABLE_USER = "user";
+    public static final String USER_COLUMN_ID = "_uid";
+    public static final String USER_COLUMN_EMAIL = "email";
+    public static final String USER_COLUMN_DOB = "dob";
 
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -55,12 +58,25 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 TRENDS_COLUMN_COUNT + " INTEGER " +
                 ")";
         db.execSQL(trends);
+
+        String user = "CREATE TABLE " + TABLE_USER + "(" +
+                USER_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT " + ", " +
+                USER_COLUMN_EMAIL + " TEXT " + ", " +
+                USER_COLUMN_DOB + " TEXT " +
+                ")";
+        db.execSQL(user);
+
+        // Add placeholder values for User table
+        User user1 = new User("null", "null");
+        addUser(user1);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_SCANNED + ";");
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_POST + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_TRENDS + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER + ";");
         onCreate(db);
     }
 
@@ -102,14 +118,13 @@ public class MyDBHandler extends SQLiteOpenHelper {
     }
 
     // Get scanned items count
-    public int getScannedCount(Context context, String sdetails) {
-        String query = "SELECT * FROM " + TABLE_SCANNED + " WHERE " + SCANNED_COLUMN_DETAILS + " = "
-                + sdetails + ";";
+    public int getScannedCount(String sdetails) {
+        String query = "SELECT * FROM " + TABLE_SCANNED + " WHERE " + SCANNED_COLUMN_DETAILS + " = \'"
+                + sdetails + "\';";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery(query, null);
 
         try {
-            Toast.makeText(context, "Count is: " + c.getCount(), Toast.LENGTH_SHORT).show();
             return c.getCount();
         } finally {
             c.close();
@@ -184,16 +199,18 @@ public class MyDBHandler extends SQLiteOpenHelper {
     }
 
     // Add a new Trend item
-    public void addTrend(Context context, Trend trend) {
+    public void addTrend(Trend trend) {
         ContentValues values = new ContentValues();
         values.put(SCANNED_COLUMN_DETAILS, String.valueOf(trend.getSdetails()));
 
         // Check if scanned item already exists
-        int count = getScannedCount(context, trend.getSdetails());
+        int count = getScannedCount(trend.getSdetails());
         if (count == 0) {
             values.put(TRENDS_COLUMN_COUNT, 1);
         }
         else {
+            // Update Trend item
+            deleteTrend(trend.getSdetails());
             values.put(TRENDS_COLUMN_COUNT, count);
         }
 
@@ -204,7 +221,6 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     // Get all trends from Trend table
     public List<Scanned> getTrends() {
-        List<Trend> trends = new ArrayList<>();
         List<Integer> counts = new ArrayList<>();
         List<Integer> top = new ArrayList<>();
         List<Scanned> scannedList = new ArrayList<>();
@@ -219,13 +235,6 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
         // Loop through all rows and add each to list
         while(!c.isAfterLast()) {
-            Trend trend = new Trend();
-            trend.set_tid(Integer.parseInt(c.getString(0)));
-            trend.setSdetails(c.getString(1));
-            trend.setTcount(Integer.parseInt(c.getString(2)));
-
-            trends.add(trend);
-
             counts.add(Integer.parseInt(c.getString(2)));
 
             c.moveToNext();
@@ -236,14 +245,16 @@ public class MyDBHandler extends SQLiteOpenHelper {
         int i = counts.size();
         if (i >= 10) {
             for(int a = 0; a < 10; a++) {
-                top.add(Collections.max(counts));
+                Integer cObject = Collections.max(counts);
+                top.add(cObject);
                 counts.remove(counts.size() - 1);
                 Collections.sort(counts);
             }
         }
         else {
-            for(int a = 0; a < i; a++) {
-                top.add(Collections.max(counts));
+            while (counts.size() > 0) {
+                Integer cObject = Collections.max(counts);
+                top.add(cObject);
                 counts.remove(counts.size() - 1);
                 Collections.sort(counts);
             }
@@ -251,10 +262,14 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
         Collections.sort(top);
 
-        int size = top.size();
-
-        while (size > 0) {
-            int max = Collections.max(top);
+        while (top.size() > 0) {
+            int max;
+            if (top.size() == 1) {
+                max = top.get(0);
+            }
+            else {
+                max = Collections.max(top);
+            }
             String query1 = "SELECT * FROM " + TABLE_TRENDS + " WHERE " + TRENDS_COLUMN_COUNT + " = "
             + max + ";";
             top.remove(top.size() - 1);
@@ -263,8 +278,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
             if (c1 != null)
                 c1.moveToFirst();
             while (!c1.isAfterLast()) {
-                String query2 = "SELECT * FROM " + TABLE_SCANNED + " WHERE " + SCANNED_COLUMN_DETAILS + " = "
-                        + c1.getString(1) + " LIMIT 1;";
+                String query2 = "SELECT * FROM " + TABLE_SCANNED + " WHERE " + SCANNED_COLUMN_DETAILS + " = \'"
+                        + c1.getString(1) + "\' LIMIT 1;";
                 Cursor c2 = db.rawQuery(query2, null);
                 if (c2 != null)
                     c2.moveToFirst();
@@ -287,6 +302,53 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.close();
 
         return scannedList;
+    }
+
+    // Delete a Trend item
+    public void deleteTrend(String sdetails) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(TABLE_TRENDS, SCANNED_COLUMN_DETAILS + " = \'" + sdetails + "\'", null);
+    }
+
+    // Add a new user to the User table
+    public void addUser(User user) {
+        ContentValues values = new ContentValues();
+        values.put(USER_COLUMN_EMAIL, String.valueOf(user.getEmail()));
+        values.put(USER_COLUMN_DOB, String.valueOf(user.getDob()));
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(TABLE_USER, null, values);
+        db.close();
+    }
+
+    // Get user from User table
+    public User getUser() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_USER + " WHERE 1;";
+        Cursor c = db.rawQuery(query, null);
+        if (c == null)
+            return null;
+        c.moveToLast();
+        int _uid = Integer.parseInt(c.getString(c.getColumnIndex(USER_COLUMN_ID)));
+        String email = c.getString(c.getColumnIndex(USER_COLUMN_EMAIL));
+        String dob = c.getString(c.getColumnIndex(USER_COLUMN_DOB));
+        User user = new User(_uid, email, dob);
+        try {
+            return user;
+        } finally {
+            c.close();
+            db.close();
+        }
+    }
+
+    // Delete user from User table
+    public void deleteUser() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "DELETE FROM " + TABLE_USER + " WHERE 1;";
+        db.execSQL(query);
+
+        // Add placeholder values for User table
+        User user = new User("null", "null");
+        addUser(user);
     }
 
 }

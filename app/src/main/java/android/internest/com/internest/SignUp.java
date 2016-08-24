@@ -56,6 +56,9 @@ public class SignUp extends AppCompatActivity {
             User user = new User(email, dob);
             dbHandler.addUser(user);
             Toast.makeText(this, getString(R.string.user_created), Toast.LENGTH_SHORT).show();
+
+            Intent i = new Intent(this, PointsPromo.class);
+            startActivity(i);
         }
     }
 

@@ -12,6 +12,8 @@ import java.util.List;
 
 public class MyDBHandler extends SQLiteOpenHelper {
 
+    SQLiteDatabase db = null;
+
     private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "scanned.db";
     public static final String TABLE_SCANNED = "scanned";
@@ -37,6 +39,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        this.db = db;
+
         String scanned = "CREATE TABLE " + TABLE_SCANNED + "(" +
                 SCANNED_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT " + ", " +
                 SCANNED_COLUMN_TYPE + " TEXT " + ", " +
@@ -85,9 +89,10 @@ public class MyDBHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(SCANNED_COLUMN_TYPE, String.valueOf(scanned.getStype()));
         values.put(SCANNED_COLUMN_DETAILS, String.valueOf(scanned.getSdetails()));
-        SQLiteDatabase db = getWritableDatabase();
+        if (db == null) {
+            db = getWritableDatabase();
+        }
         db.insert(TABLE_SCANNED, null, values);
-        db.close();
     }
 
     // Get all scanned items from Scanned table
@@ -96,7 +101,10 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
         String query = "SELECT * FROM " + TABLE_SCANNED + ";";
 
-        SQLiteDatabase db = this.getReadableDatabase();
+        if (db == null) {
+            db = getReadableDatabase();
+        }
+
         Cursor c = db.rawQuery(query, null);
 
         if (c != null)
@@ -121,27 +129,28 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public int getScannedCount(String sdetails) {
         String query = "SELECT * FROM " + TABLE_SCANNED + " WHERE " + SCANNED_COLUMN_DETAILS + " = \'"
                 + sdetails + "\';";
-        SQLiteDatabase db = this.getReadableDatabase();
+        if (db == null) {
+            db = getReadableDatabase();
+        }
         Cursor c = db.rawQuery(query, null);
 
         try {
             return c.getCount();
         } finally {
             c.close();
-            db.close();
         }
     }
 
     // Delete a scanned item
     public void deleteScanned(String id) {
         String query = "DELETE FROM " + TABLE_SCANNED + " WHERE " + SCANNED_COLUMN_ID + " = " + id + ";";
-        SQLiteDatabase db = this.getWritableDatabase();
+        if (db == null) {
+            db = getWritableDatabase();
+        }
         try {
             db.execSQL(query);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            db.close();
         }
     }
 
@@ -151,9 +160,10 @@ public class MyDBHandler extends SQLiteOpenHelper {
         values.put(POST_COLUMN_TITLE, String.valueOf(post.getPtitle()));
         values.put(POST_COLUMN_BODY, String.valueOf(post.getPbody()));
         values.put(POST_COLUMN_URL, String.valueOf(post.getPurl()));
-        SQLiteDatabase db = getWritableDatabase();
+        if (db == null) {
+            db = getWritableDatabase();
+        }
         db.insert(TABLE_POST, null, values);
-        db.close();
     }
 
     // Get all posts from Post table
@@ -162,7 +172,10 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
         String query = "SELECT * FROM " + TABLE_POST + ";";
 
-        SQLiteDatabase db = this.getReadableDatabase();
+        if (db == null) {
+            db = getReadableDatabase();
+        }
+
         Cursor c = db.rawQuery(query, null);
 
         if (c != null)
@@ -187,14 +200,15 @@ public class MyDBHandler extends SQLiteOpenHelper {
     // Get post items count
     public int getPostsCount() {
         String query = "SELECT * FROM " + TABLE_POST + ";";
-        SQLiteDatabase db = this.getReadableDatabase();
+        if (db == null) {
+            db = getReadableDatabase();
+        }
         Cursor c = db.rawQuery(query, null);
 
         try {
             return c.getCount();
         } finally {
             c.close();
-            db.close();
         }
     }
 
@@ -214,9 +228,11 @@ public class MyDBHandler extends SQLiteOpenHelper {
             values.put(TRENDS_COLUMN_COUNT, count);
         }
 
-        SQLiteDatabase db = getWritableDatabase();
+        if (db == null) {
+            db = getWritableDatabase();
+        }
+
         db.insert(TABLE_TRENDS, null, values);
-        db.close();
     }
 
     // Get all trends from Trend table
@@ -227,7 +243,10 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
         String query = "SELECT * FROM " + TABLE_TRENDS + ";";
 
-        SQLiteDatabase db = this.getReadableDatabase();
+        if (db == null) {
+            db = getReadableDatabase();
+        }
+
         Cursor c = db.rawQuery(query, null);
 
         if (c != null)
@@ -299,14 +318,15 @@ public class MyDBHandler extends SQLiteOpenHelper {
         }
 
         c.close();
-        db.close();
 
         return scannedList;
     }
 
     // Delete a Trend item
     public void deleteTrend(String sdetails) {
-        SQLiteDatabase db = getWritableDatabase();
+        if (db == null) {
+            db = getWritableDatabase();
+        }
         db.delete(TABLE_TRENDS, SCANNED_COLUMN_DETAILS + " = \'" + sdetails + "\'", null);
     }
 
@@ -315,14 +335,17 @@ public class MyDBHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(USER_COLUMN_EMAIL, String.valueOf(user.getEmail()));
         values.put(USER_COLUMN_DOB, String.valueOf(user.getDob()));
-        SQLiteDatabase db = getWritableDatabase();
+        if (db == null) {
+            db = getWritableDatabase();
+        }
         db.insert(TABLE_USER, null, values);
-        db.close();
     }
 
     // Get user from User table
     public User getUser() {
-        SQLiteDatabase db = this.getWritableDatabase();
+        if (db == null) {
+            db = getReadableDatabase();
+        }
         String query = "SELECT * FROM " + TABLE_USER + " WHERE 1;";
         Cursor c = db.rawQuery(query, null);
         if (c == null)
@@ -336,13 +359,14 @@ public class MyDBHandler extends SQLiteOpenHelper {
             return user;
         } finally {
             c.close();
-            db.close();
         }
     }
 
     // Delete user from User table
     public void deleteUser() {
-        SQLiteDatabase db = this.getWritableDatabase();
+        if (db == null) {
+            db = getWritableDatabase();
+        }
         String query = "DELETE FROM " + TABLE_USER + " WHERE 1;";
         db.execSQL(query);
 

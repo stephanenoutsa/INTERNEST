@@ -80,6 +80,10 @@
             android:label="@string/title_activity_points_promo"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name="android.internest.com.internest.SignUp"
+            android:label="@string/title_activity_sign_up"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:clearTaskOnLaunch="true"
             android:screenOrientation="sensorLandscape"

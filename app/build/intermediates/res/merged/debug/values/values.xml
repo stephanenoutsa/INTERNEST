@@ -330,9 +330,6 @@
     <string name="dob_hint">Enter date of birth here</string>
     <string name="dob_incorrect">Enter a valid date</string>
     <string name="dob_label">Date of Birth:</string>
-    <string name="email_hint">Enter email address here</string>
-    <string name="email_incorrect">Enter a valid email address</string>
-    <string name="email_label">Email:</string>
     <string name="empty_scan">Nothing to display</string>
     <string name="enter_content_text">Enter Content to be Encoded</string>
     <string name="filenotfound_error">File not found. Please try again.</string>
@@ -343,6 +340,9 @@
     <string name="menu_points">Points Promo</string>
     <string name="menu_scan">Scan</string>
     <string name="menu_share">Share</string>
+    <string name="num_hint">Enter phone number here</string>
+    <string name="num_incorrect">Enter a valid phone number</string>
+    <string name="num_label">Phone Number:</string>
     <string name="qr_code_description">Your QR Code</string>
     <string name="save_code_button_text">Save QR Code</string>
     <string name="save_success">Image saved successfully</string>

@@ -19,11 +19,11 @@ public class SignUp extends AppCompatActivity {
     private ShareActionProvider mShareActionProvider;
 
     MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
-    TextView emailText;
-    EditText emailInput;
+    TextView numText;
+    EditText numInput;
     TextView dobText;
     EditText dobInput;
-    String email, dob;
+    String num, dob;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +38,9 @@ public class SignUp extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Magnificent.ttf");
-        emailText = (TextView) findViewById(R.id.emailText);
-        emailText.setTypeface(font);
-        emailInput = (EditText) findViewById(R.id.emailInput);
+        numText = (TextView) findViewById(R.id.numText);
+        numText.setTypeface(font);
+        numInput = (EditText) findViewById(R.id.numInput);
         dobText = (TextView) findViewById(R.id.dobText);
         dobText.setTypeface(font);
         dobInput = (EditText) findViewById(R.id.dobInput);
@@ -49,11 +49,11 @@ public class SignUp extends AppCompatActivity {
 
     // Create user account
     public void onClickCreate(View view) {
-        email = emailInput.getText().toString();
+        num = numInput.getText().toString();
         dob = dobInput.getText().toString();
 
-        if (validate(email, dob)) {
-            User user = new User(email, dob);
+        if (validate(num, dob)) {
+            User user = new User(num, dob);
             dbHandler.addUser(user);
             Toast.makeText(this, getString(R.string.user_created), Toast.LENGTH_SHORT).show();
 
@@ -63,16 +63,26 @@ public class SignUp extends AppCompatActivity {
     }
 
     // Validate the form
-    public boolean validate(String email, String dob) {
+    public boolean validate(String num, String dob) {
         boolean valid = true;
 
-        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        // Email validation
+        /*if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             emailInput.setError(getString(R.string.email_incorrect));
             valid = false;
         } else {
             emailInput.setError(null);
+        }*/
+
+        // Number validation
+        if (num.isEmpty() || num.length() < 9) {
+            numInput.setError(getString(R.string.num_incorrect));
+            valid = false;
+        } else {
+            numInput.setError(null);
         }
 
+        // DOB validation
         boolean a = dob.matches("\\d\\d/\\d\\d/\\d\\d");
         boolean b = dob.matches("\\d\\d/\\d\\d/\\d\\d\\d\\d");
         boolean c = dob.matches("\\d\\d\\.\\d\\d\\.\\d\\d");
@@ -112,10 +122,10 @@ public class SignUp extends AppCompatActivity {
     public void onClickPoints() {
         MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
         User user = dbHandler.getUser();
-        String email = user.getEmail();
+        String num = user.getNum();
         String dob = user.getDob();
         Intent i;
-        if (email.equals("null") || dob.equals("null")) {
+        if (num.equals("null") || dob.equals("null")) {
             i = new Intent(this, SignUp.class);
         }
         else {

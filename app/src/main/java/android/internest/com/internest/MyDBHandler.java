@@ -30,7 +30,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String TRENDS_COLUMN_COUNT = "tcount";
     public static final String TABLE_USER = "user";
     public static final String USER_COLUMN_ID = "_uid";
-    public static final String USER_COLUMN_EMAIL = "email";
+    public static final String USER_COLUMN_NUM = "number";
     public static final String USER_COLUMN_DOB = "dob";
 
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -65,7 +65,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
         String user = "CREATE TABLE " + TABLE_USER + "(" +
                 USER_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT " + ", " +
-                USER_COLUMN_EMAIL + " TEXT " + ", " +
+                USER_COLUMN_NUM + " TEXT " + ", " +
                 USER_COLUMN_DOB + " TEXT " +
                 ")";
         db.execSQL(user);
@@ -215,7 +215,6 @@ public class MyDBHandler extends SQLiteOpenHelper {
     // Add a new Trend item
     public void addTrend(Trend trend) {
         ContentValues values = new ContentValues();
-        values.put(SCANNED_COLUMN_DETAILS, String.valueOf(trend.getSdetails()));
 
         // Check if scanned item already exists
         int count = getScannedCount(trend.getSdetails());
@@ -227,6 +226,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
             deleteTrend(trend.getSdetails());
             values.put(TRENDS_COLUMN_COUNT, count);
         }
+        values.put(SCANNED_COLUMN_DETAILS, String.valueOf(trend.getSdetails()));
 
         if (db == null) {
             db = getWritableDatabase();
@@ -333,7 +333,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     // Add a new user to the User table
     public void addUser(User user) {
         ContentValues values = new ContentValues();
-        values.put(USER_COLUMN_EMAIL, String.valueOf(user.getEmail()));
+        values.put(USER_COLUMN_NUM, String.valueOf(user.getNum()));
         values.put(USER_COLUMN_DOB, String.valueOf(user.getDob()));
         if (db == null) {
             db = getWritableDatabase();
@@ -352,9 +352,9 @@ public class MyDBHandler extends SQLiteOpenHelper {
             return null;
         c.moveToLast();
         int _uid = Integer.parseInt(c.getString(c.getColumnIndex(USER_COLUMN_ID)));
-        String email = c.getString(c.getColumnIndex(USER_COLUMN_EMAIL));
+        String num = c.getString(c.getColumnIndex(USER_COLUMN_NUM));
         String dob = c.getString(c.getColumnIndex(USER_COLUMN_DOB));
-        User user = new User(_uid, email, dob);
+        User user = new User(_uid, num, dob);
         try {
             return user;
         } finally {

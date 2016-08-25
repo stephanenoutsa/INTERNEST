@@ -92,9 +92,9 @@
 
     <!-- Start of SignUp Activity Literature -->
     <string name="title_activity_sign_up">Sign Up</string>
-    <string name="email_label">Email:</string>
-    <string name="email_hint">Enter email address here</string>
-    <string name="email_incorrect">Enter a valid email address</string>
+    <string name="num_label">Phone Number:</string>
+    <string name="num_hint">Enter phone number here</string>
+    <string name="num_incorrect">Enter a valid phone number</string>
     <string name="dob_label">Date of Birth:</string>
     <string name="dob_hint">Enter date of birth here</string>
     <string name="dob_incorrect">Enter a valid date</string>

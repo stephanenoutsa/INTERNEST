@@ -90,10 +90,10 @@ public class Blog extends AppCompatActivity {
     public void onClickPoints() {
         MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
         User user = dbHandler.getUser();
-        String email = user.getEmail();
+        String num = user.getNum();
         String dob = user.getDob();
         Intent i;
-        if (email.equals("null") || dob.equals("null")) {
+        if (num.equals("null") || dob.equals("null")) {
             i = new Intent(this, SignUp.class);
         }
         else {

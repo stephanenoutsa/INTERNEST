@@ -66,12 +66,17 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_standard_borders"
+                android:background="@color/colorPrimary"
+                android:layout_alignRight="@+id/contents"
+                android:layout_alignEnd="@+id/contents"
+                android:layout_alignLeft="@+id/contents"
+                android:layout_alignStart="@+id/contents"
                 android:text="@string/make_code_button_text"
                 android:id="@+id/makeCodeButton"
                 android:layout_below="@+id/contents"
                 android:textColor="@color/colorTextPrimary"
                 android:layout_centerHorizontal="true"
+                android:padding="5dp"
                 android:layout_marginTop="38dp" />
 
         </RelativeLayout>

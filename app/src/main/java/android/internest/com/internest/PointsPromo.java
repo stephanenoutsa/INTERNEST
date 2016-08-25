@@ -14,6 +14,7 @@ import android.widget.TextView;
 public class PointsPromo extends AppCompatActivity {
 
     private ShareActionProvider mShareActionProvider;
+    String back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,20 @@ public class PointsPromo extends AppCompatActivity {
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Amsterdrum_Grotesk.ttf");
         toolbarTitle.setTypeface(typeface);
         setSupportActionBar(toolbar);
+
+        back = getIntent().getExtras().getString("back");
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (back.equals("signup")) {
+            Intent intent = new Intent(this, Blog.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
+        }
     }
 
     ////////////Intents for menu items////////////
@@ -58,6 +73,7 @@ public class PointsPromo extends AppCompatActivity {
         }
         else {
             i = new Intent(this, PointsPromo.class);
+            i.putExtra("back", "points");
         }
 
         startActivity(i);

@@ -58,6 +58,7 @@ public class SignUp extends AppCompatActivity {
             Toast.makeText(this, getString(R.string.user_created), Toast.LENGTH_SHORT).show();
 
             Intent i = new Intent(this, PointsPromo.class);
+            i.putExtra("back", "signup");
             startActivity(i);
         }
     }
@@ -130,6 +131,7 @@ public class SignUp extends AppCompatActivity {
         }
         else {
             i = new Intent(this, PointsPromo.class);
+            i.putExtra("back", "signup");
         }
 
         startActivity(i);

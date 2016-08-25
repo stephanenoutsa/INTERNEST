@@ -170,6 +170,7 @@ public class History extends AppCompatActivity {
         }
         else {
             i = new Intent(this, PointsPromo.class);
+            i.putExtra("back", "history");
         }
 
         startActivity(i);

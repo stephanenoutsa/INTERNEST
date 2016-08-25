@@ -93,6 +93,7 @@ public class TextDisplay extends AppCompatActivity {
         }
         else {
             i = new Intent(this, PointsPromo.class);
+            i.putExtra("back", "textDisplay");
         }
 
         startActivity(i);

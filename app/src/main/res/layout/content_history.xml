@@ -18,6 +18,8 @@
         android:layout_height="match_parent"
         android:paddingBottom="80dp"
         android:id="@+id/scannedList"
+        android:divider="@color/colorAccent"
+        android:dividerHeight="2dp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

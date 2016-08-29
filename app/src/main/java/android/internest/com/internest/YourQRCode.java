@@ -146,6 +146,9 @@ public class YourQRCode extends AppCompatActivity {
 
             Toast.makeText(this, getString(R.string.save_success), Toast.LENGTH_LONG).show();
 
+            Intent i = new Intent(this, Blog.class);
+            startActivity(i);
+
             return true;
         } catch (FileNotFoundException e) {
             e.printStackTrace();

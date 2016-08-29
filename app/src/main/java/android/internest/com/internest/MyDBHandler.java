@@ -14,7 +14,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     SQLiteDatabase db = null;
 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "scanned.db";
     public static final String TABLE_SCANNED = "scanned";
     public static final String SCANNED_COLUMN_ID = "_sid";
@@ -32,6 +32,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String USER_COLUMN_ID = "_uid";
     public static final String USER_COLUMN_NUM = "number";
     public static final String USER_COLUMN_DOB = "dob";
+    public static final String USER_COLUMN_GEN = "gender";
 
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -66,12 +67,13 @@ public class MyDBHandler extends SQLiteOpenHelper {
         String user = "CREATE TABLE " + TABLE_USER + "(" +
                 USER_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT " + ", " +
                 USER_COLUMN_NUM + " TEXT " + ", " +
-                USER_COLUMN_DOB + " TEXT " +
+                USER_COLUMN_DOB + " TEXT " + ", " +
+                USER_COLUMN_GEN + " TEXT " +
                 ")";
         db.execSQL(user);
 
         // Add placeholder values for User table
-        User user1 = new User("null", "null");
+        User user1 = new User("null", "null", "null");
         addUser(user1);
     }
 
@@ -335,6 +337,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(USER_COLUMN_NUM, String.valueOf(user.getNum()));
         values.put(USER_COLUMN_DOB, String.valueOf(user.getDob()));
+        values.put(USER_COLUMN_GEN, String.valueOf(user.getGender()));
         if (db == null) {
             db = getWritableDatabase();
         }
@@ -354,7 +357,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
         int _uid = Integer.parseInt(c.getString(c.getColumnIndex(USER_COLUMN_ID)));
         String num = c.getString(c.getColumnIndex(USER_COLUMN_NUM));
         String dob = c.getString(c.getColumnIndex(USER_COLUMN_DOB));
-        User user = new User(_uid, num, dob);
+        String gender = c.getString(c.getColumnIndex(USER_COLUMN_GEN));
+        User user = new User(_uid, num, dob, gender);
         try {
             return user;
         } finally {
@@ -371,7 +375,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.execSQL(query);
 
         // Add placeholder values for User table
-        User user = new User("null", "null");
+        User user = new User("null", "null", "null");
         addUser(user);
     }
 

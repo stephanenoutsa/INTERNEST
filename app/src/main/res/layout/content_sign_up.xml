@@ -59,6 +59,45 @@
                 android:textColor="@color/colorBlack"
                 android:textColorHint="@color/colorPrimaryLight" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/gender_label"
+                android:id="@+id/genderText"
+                android:textColor="@color/colorBlack"
+                android:layout_marginTop="20dp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/genderGroup">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gender_male"
+                    android:id="@+id/maleGender"
+                    android:textColor="@color/colorBlack"
+                    android:onClick="radioButtonClicked" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gender_female"
+                    android:id="@+id/femaleGender"
+                    android:textColor="@color/colorBlack"
+                    android:onClick="radioButtonClicked" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gender_other"
+                    android:id="@+id/otherGender"
+                    android:textColor="@color/colorBlack"
+                    android:onClick="radioButtonClicked" />
+            </RadioGroup>
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

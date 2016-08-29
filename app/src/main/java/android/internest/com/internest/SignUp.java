@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +24,8 @@ public class SignUp extends AppCompatActivity {
     EditText numInput;
     TextView dobText;
     EditText dobInput;
-    String num, dob;
+    String num, dob, gender;
+    RadioButton male, female, other;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,32 @@ public class SignUp extends AppCompatActivity {
         dobText.setTypeface(font);
         dobInput = (EditText) findViewById(R.id.dobInput);
 
+        male = (RadioButton) findViewById(R.id.maleGender);
+        female = (RadioButton) findViewById(R.id.femaleGender);
+        other = (RadioButton) findViewById(R.id.otherGender);
+
+    }
+
+    // Check radio buttons clicks
+    public void radioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.maleGender:
+                if (checked)
+                    gender = "male";
+                break;
+            case R.id.femaleGender:
+                if (checked)
+                    gender = "female";
+                break;
+            case R.id.otherGender:
+                if (checked)
+                    gender = "other";
+                break;
+        }
     }
 
     // Create user account
@@ -56,7 +84,7 @@ public class SignUp extends AppCompatActivity {
         dob = dobInput.getText().toString();
 
         if (validate(num, dob)) {
-            User user = new User(num, dob);
+            User user = new User(num, dob, gender);
             dbHandler.addUser(user);
             Toast.makeText(this, getString(R.string.user_created), Toast.LENGTH_SHORT).show();
 
@@ -95,11 +123,19 @@ public class SignUp extends AppCompatActivity {
         boolean f = dob.matches("\\d\\d-\\d\\d-\\d\\d\\d\\d");
         if (a || b || c || d || e || f ) {
             dobInput.setError(null);
-        }
-        else {
+        } else {
             dobInput.setError(getString(R.string.dob_incorrect));
             valid = false;
         }
+
+        // Gender validation
+        if (gender == null) {
+            male.setError(getString(R.string.gender_error));
+            valid = false;
+        }/*
+        else {
+            male.setError(null);
+        }*/
 
         return valid;
     }

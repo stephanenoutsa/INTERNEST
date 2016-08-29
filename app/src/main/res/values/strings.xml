@@ -98,6 +98,11 @@
     <string name="dob_label">Date of Birth:</string>
     <string name="dob_hint">Enter date of birth here</string>
     <string name="dob_incorrect">Enter a valid date</string>
+    <string name="gender_label">Gender:</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="gender_other">Other</string>
+    <string name="gender_error">You must choose at least one gender</string>
     <string name="create_account">Create Account</string>
     <string name="user_created">Account created</string>
     <!-- End of SignUp Activity Literature -->

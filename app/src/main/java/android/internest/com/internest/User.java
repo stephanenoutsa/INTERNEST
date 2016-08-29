@@ -6,7 +6,7 @@ public class User {
 
     // Private variables
     int _uid;
-    String num, dob;
+    String num, dob, gender;
 
     // Empty Constructor
     public User() {
@@ -14,14 +14,14 @@ public class User {
     }
 
     // Constructor
-    public User(int _uid, String num, String dob) {
+    public User(int _uid, String num, String dob, String gender) {
         this._uid = _uid;
         this.num = num;
         this.dob = dob;
     }
 
     // Constructor
-    public User(String num, String dob) {
+    public User(String num, String dob, String gender) {
         this.num = num;
         this.dob = dob;
     }
@@ -49,5 +49,13 @@ public class User {
 
     public void setDob(String dob) {
         this.dob = dob;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }

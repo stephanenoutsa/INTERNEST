@@ -333,6 +333,11 @@
     <string name="empty_scan">Nothing to display</string>
     <string name="enter_content_text">Enter Content to be Encoded</string>
     <string name="filenotfound_error">File not found. Please try again.</string>
+    <string name="gender_error">You must choose at least one gender</string>
+    <string name="gender_female">Female</string>
+    <string name="gender_label">Gender:</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_other">Other</string>
     <string name="io_error">There was an error. Please try again.</string>
     <string name="make_code_button_text">Generate QR Code</string>
     <string name="make_code_fragment_text">GENERATE</string>

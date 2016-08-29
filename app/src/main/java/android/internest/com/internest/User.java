@@ -18,12 +18,14 @@ public class User {
         this._uid = _uid;
         this.num = num;
         this.dob = dob;
+        this.gender = gender;
     }
 
     // Constructor
     public User(String num, String dob, String gender) {
         this.num = num;
         this.dob = dob;
+        this.gender = gender;
     }
 
     // Getter and Setter methods

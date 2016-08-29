@@ -83,7 +83,7 @@ public class SignUp extends AppCompatActivity {
         num = numInput.getText().toString();
         dob = dobInput.getText().toString();
 
-        if (validate(num, dob)) {
+        if (validate(num, dob, gender)) {
             User user = new User(num, dob, gender);
             dbHandler.addUser(user);
             Toast.makeText(this, getString(R.string.user_created), Toast.LENGTH_SHORT).show();
@@ -95,7 +95,7 @@ public class SignUp extends AppCompatActivity {
     }
 
     // Validate the form
-    public boolean validate(String num, String dob) {
+    public boolean validate(String num, String dob, String gender) {
         boolean valid = true;
 
         // Email validation
@@ -132,10 +132,9 @@ public class SignUp extends AppCompatActivity {
         if (gender == null) {
             male.setError(getString(R.string.gender_error));
             valid = false;
-        }/*
-        else {
+        } else {
             male.setError(null);
-        }*/
+        }
 
         return valid;
     }

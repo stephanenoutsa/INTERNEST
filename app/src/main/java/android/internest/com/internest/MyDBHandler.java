@@ -28,7 +28,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String TABLE_TRENDS = "trends";
     public static final String TRENDS_COLUMN_ID = "_tid";
     public static final String TRENDS_COLUMN_COUNT = "tcount";
-    public static final String TABLE_USER = "user";
+    public static final String TABLE_USER = "users";
     public static final String USER_COLUMN_ID = "_uid";
     public static final String USER_COLUMN_NUM = "number";
     public static final String USER_COLUMN_DOB = "dob";

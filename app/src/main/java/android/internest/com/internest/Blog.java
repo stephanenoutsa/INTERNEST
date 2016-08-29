@@ -49,7 +49,7 @@ public class Blog extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Set navigation icon
-        toolbar.setNavigationIcon(getDrawable(R.drawable.icon));
+        toolbar.setNavigationIcon(R.drawable.icon);
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.

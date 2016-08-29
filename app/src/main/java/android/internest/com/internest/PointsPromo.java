@@ -29,7 +29,7 @@ public class PointsPromo extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Set navigation icon
-        toolbar.setNavigationIcon(getDrawable(R.drawable.icon));
+        toolbar.setNavigationIcon(R.drawable.icon);
 
         back = getIntent().getExtras().getString("back");
     }

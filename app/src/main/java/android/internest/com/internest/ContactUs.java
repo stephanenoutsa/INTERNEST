@@ -28,7 +28,7 @@ public class ContactUs extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Set navigation icon
-        toolbar.setNavigationIcon(getDrawable(R.drawable.icon));
+        toolbar.setNavigationIcon(R.drawable.icon);
     }
 
     ////////////Intents for menu items////////////

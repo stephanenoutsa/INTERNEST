@@ -33,7 +33,7 @@ public class URLDisplay extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Set navigation icon
-        toolbar.setNavigationIcon(getDrawable(R.drawable.icon));
+        toolbar.setNavigationIcon(R.drawable.icon);
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

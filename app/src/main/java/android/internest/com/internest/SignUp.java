@@ -40,7 +40,7 @@ public class SignUp extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Set navigation icon
-        toolbar.setNavigationIcon(getDrawable(R.drawable.icon));
+        toolbar.setNavigationIcon(R.drawable.icon);
 
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Magnificent.ttf");
         numText = (TextView) findViewById(R.id.numText);

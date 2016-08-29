@@ -48,6 +48,9 @@ public class Blog extends AppCompatActivity {
         toolbarTitle.setTypeface(font);
         setSupportActionBar(toolbar);
 
+        // Set navigation icon
+        toolbar.setNavigationIcon(getDrawable(R.drawable.icon));
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());

@@ -31,6 +31,9 @@ public class TextDisplay extends AppCompatActivity {
         toolbarTitle.setTypeface(typeface);
         setSupportActionBar(toolbar);
 
+        // Set navigation icon
+        toolbar.setNavigationIcon(getDrawable(R.drawable.icon));
+
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

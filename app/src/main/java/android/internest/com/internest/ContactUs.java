@@ -26,6 +26,9 @@ public class ContactUs extends AppCompatActivity {
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Amsterdrum_Grotesk.ttf");
         toolbarTitle.setTypeface(typeface);
         setSupportActionBar(toolbar);
+
+        // Set navigation icon
+        toolbar.setNavigationIcon(getDrawable(R.drawable.icon));
     }
 
     ////////////Intents for menu items////////////

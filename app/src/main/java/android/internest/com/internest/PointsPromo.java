@@ -28,6 +28,9 @@ public class PointsPromo extends AppCompatActivity {
         toolbarTitle.setTypeface(typeface);
         setSupportActionBar(toolbar);
 
+        // Set navigation icon
+        toolbar.setNavigationIcon(getDrawable(R.drawable.icon));
+
         back = getIntent().getExtras().getString("back");
     }
 

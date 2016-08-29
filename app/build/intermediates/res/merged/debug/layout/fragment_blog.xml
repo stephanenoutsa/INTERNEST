@@ -13,8 +13,6 @@
         android:id="@+id/blogList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@color/colorAccent"
-        android:dividerHeight="2dp"
         android:paddingBottom="80dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true" />

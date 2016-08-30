@@ -29,4 +29,11 @@ dependencies {
     // Add the zxing library dependency files
     compile 'com.journeyapps:zxing-android-embedded:3.2.0@aar'
     compile 'com.google.zxing:core:3.2.1'
+
+    // Add the GSON library dependency files
+    compile 'com.google.code.gson:gson:2.4'
+
+    // Add the Retrofit Framework dependency files
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 }

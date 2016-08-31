@@ -21,10 +21,13 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String SCANNED_COLUMN_TYPE = "stype";
     public static final String SCANNED_COLUMN_DETAILS = "sdetails";
     public static final String TABLE_POST = "posts";
-    public static final String POST_COLUMN_ID = "_pid";
-    public static final String POST_COLUMN_TITLE = "ptitle";
-    public static final String POST_COLUMN_BODY = "pbody";
-    public static final String POST_COLUMN_URL = "purl";
+    public static final String POST_COLUMN_ID = "id";
+    public static final String POST_COLUMN_AUTHOR = "author";
+    public static final String POST_COLUMN_DATE = "created";
+    public static final String POST_COLUMN_URL = "url";
+    public static final String POST_COLUMN_THUMBNAIL = "thumbnail";
+    public static final String POST_COLUMN_TITLE = "title";
+    public static final String POST_COLUMN_BODY = "body";
     public static final String TABLE_TRENDS = "trends";
     public static final String TRENDS_COLUMN_ID = "_tid";
     public static final String TRENDS_COLUMN_COUNT = "tcount";
@@ -51,9 +54,12 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
         String posts = "CREATE TABLE " + TABLE_POST + "(" +
                 POST_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT " + ", " +
+                POST_COLUMN_AUTHOR + " TEXT " + ", " +
+                POST_COLUMN_DATE + " TEXT " + ", " +
+                POST_COLUMN_URL + " TEXT " + ", " +
+                POST_COLUMN_THUMBNAIL + " TEXT " + ", " +
                 POST_COLUMN_TITLE + " TEXT " + ", " +
-                POST_COLUMN_BODY + " TEXT " + ", " +
-                POST_COLUMN_URL + " TEXT " +
+                POST_COLUMN_BODY + " TEXT " +
                 ")";
         db.execSQL(posts);
 
@@ -159,9 +165,12 @@ public class MyDBHandler extends SQLiteOpenHelper {
     // Add a new post to the Post table
     public void addPost(Post post) {
         ContentValues values = new ContentValues();
-        values.put(POST_COLUMN_TITLE, String.valueOf(post.getPtitle()));
-        values.put(POST_COLUMN_BODY, String.valueOf(post.getPbody()));
-        values.put(POST_COLUMN_URL, String.valueOf(post.getPurl()));
+        values.put(POST_COLUMN_AUTHOR, String.valueOf(post.getAuthor()));
+        values.put(POST_COLUMN_DATE, String.valueOf(post.getCreated()));
+        values.put(POST_COLUMN_URL, String.valueOf(post.getUrl()));
+        values.put(POST_COLUMN_THUMBNAIL, String.valueOf(post.getThumbnail()));
+        values.put(POST_COLUMN_TITLE, String.valueOf(post.getTitle()));
+        values.put(POST_COLUMN_BODY, String.valueOf(post.getBody()));
         if (db == null) {
             db = getWritableDatabase();
         }
@@ -186,10 +195,13 @@ public class MyDBHandler extends SQLiteOpenHelper {
         // Loop through all rows and add each to list
         while(!c.isAfterLast()) {
             Post post = new Post();
-            post.set_pid(Integer.parseInt(c.getString(0)));
-            post.setPtitle(c.getString(1));
-            post.setPbody(c.getString(2));
-            post.setPurl(c.getString(3));
+            post.setId(Integer.parseInt(c.getString(0)));
+            post.setAuthor(c.getString(1));
+            post.setCreated(c.getString(2));
+            post.setUrl(c.getString(3));
+            post.setThumbnail(c.getString(4));
+            post.setTitle(c.getString(5));
+            post.setBody(c.getString(6));
 
             posts.add(post);
 

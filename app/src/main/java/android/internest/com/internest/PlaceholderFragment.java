@@ -29,6 +29,10 @@ public class PlaceholderFragment extends Fragment {
      * fragment.
      */
     private static final String ARG_SECTION_NUMBER = "section_number";
+    List<Post> postList;
+    ListAdapter listAdapter;
+    ListView listView;
+
 
     public PlaceholderFragment() {
     }
@@ -68,21 +72,17 @@ public class PlaceholderFragment extends Fragment {
 
                 InternestService internestService = retrofit.create(InternestService.class);
 
-                Post post = new Post("Trend", "Created", "Url", "Thumbnail", "Title", "Body");
-
                 Call<List<Post>> call = internestService.getAllPosts();
                 call.enqueue(new retrofit2.Callback<List<Post>>() {
                     @Override
                     public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
                         int statusCode = response.code();
                         if (statusCode == 200) {
-                            List<Post> postList = response.body();
-                            // Reverse the order of the post items
-                            //Collections.reverse(postList);
+                            postList = response.body();
 
-                            ListAdapter listAdapter = new BlogAdapter(getActivity(), postList);
+                            listAdapter = new BlogAdapter(getActivity(), postList);
 
-                            ListView listView = (ListView) rootView.findViewById(R.id.blogList);
+                            listView = (ListView) rootView.findViewById(R.id.blogList);
                             listView.setAdapter(listAdapter);
 
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 /**
@@ -17,8 +19,11 @@ import java.util.List;
  */
 public class BlogAdapter extends ArrayAdapter<Post> {
 
+    Context context;
+
     public BlogAdapter(Context context, List<Post> posts) {
         super(context, R.layout.custom_blog_row, posts);
+        this.context = context;
     }
 
     @Override
@@ -27,6 +32,13 @@ public class BlogAdapter extends ArrayAdapter<Post> {
         View customView = inflater.inflate(R.layout.custom_blog_row, parent, false);
 
         Post singlePostItem = getItem(position);
+        /*int id = singlePostItem.getId();
+        String author = singlePostItem.getAuthor();
+        String created = singlePostItem.getCreated();
+        String url = singlePostItem.getUrl();*/
+        String thumbnail = singlePostItem.getThumbnail();
+        String title = singlePostItem.getTitle();
+        String body = singlePostItem.getBody();
 
         ImageView blogThumbnail = (ImageView) customView.findViewById(R.id.blogThumbnail);
         TextView blogTitle = (TextView) customView.findViewById(R.id.blogTitle);
@@ -38,20 +50,9 @@ public class BlogAdapter extends ArrayAdapter<Post> {
         blogExcerpt.setTypeface(font);
         blogExcerpt.setTextColor(ContextCompat.getColor(getContext(), R.color.colorBlack));
 
-        blogThumbnail.setImageResource(R.drawable.fried_plantains);
-        blogTitle.setText("The Magic of Fried Plantains");
-        String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor," +
-                "diam scelerisque lacinia malesuada, quam libero convallis elit, et laoreet sapien lacus" +
-                "vel dolor. Vivamus sit amet lorem porta nisi pharetra convallis id non magna. Sed volutpat" +
-                "leo in enim feugiat tincidunt. Nunc venenatis erat erat, at auctor dui scelerisque a." +
-                "Sed congue leo id magna consequat, eget volutpat felis vestibulum. Maecenas gravida" +
-                "ultricies convallis. In hac habitasse platea dictumst. Curabitur a venenatis libero," +
-                "ut dignissim libero. Donec tempor sem in leo pharetra imperdiet. Nam ac purus fermentum" +
-                "augue auctor lacinia. Praesent in egestas augue. Vestibulum nibh neque, fermentum fermentum" +
-                "vulputate sit amet, pulvinar eget est. In et eleifend erat, at maximus arcu. Vivamus" +
-                "id nisi sit amet libero ultrices facilisis. Quisque eget tellus sit amet magna cursus" +
-                "vulputate vel et ex. Morbi quis urna varius dolor mattis pellentesque eu at erat.";
-        String trimmed = trimText(text);
+        Picasso.with(context).load(thumbnail).into(blogThumbnail);
+        blogTitle.setText(title);
+        String trimmed = trimText(body);
         blogExcerpt.setText(trimmed);
 
         return customView;

@@ -11,9 +11,14 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by stephnoutsa on 6/1/16.
@@ -50,36 +55,54 @@ public class PlaceholderFragment extends Fragment {
         final Handler handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
+                /**
+                 * Get all post items from server
+                  */
+                // Trailing slash is needed
+                final String BASE_URL = "http://10.0.2.2:8080/internest/webapi/"; // Localhost value is 10.0.2.2
 
-                List<Post> blogList;
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(BASE_URL)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
 
-                // Get all post items from database
-                blogList = new ArrayList<>();
-                Post post1 = new Post(1, "title1", "post1", "url1");
-                blogList.add(post1);
-                Post post2 = new Post(2, "title2", "post2", "url2");
-                blogList.add(post2);
-                Post post3 = new Post(3, "title3", "post3", "url3");
-                blogList.add(post3);
-                Post post4 = new Post(4, "title4", "post4", "url4");
-                blogList.add(post4);
+                InternestService internestService = retrofit.create(InternestService.class);
 
-                // Reverse the order of the post items
-                //Collections.reverse(blogList);
+                Post post = new Post("Trend", "Created", "Url", "Thumbnail", "Title", "Body");
 
-                ListAdapter listAdapter = new BlogAdapter(getActivity(), blogList);
+                Call<List<Post>> call = internestService.getAllPosts();
+                call.enqueue(new retrofit2.Callback<List<Post>>() {
+                    @Override
+                    public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
+                        int statusCode = response.code();
+                        if (statusCode == 200) {
+                            List<Post> postList = response.body();
+                            // Reverse the order of the post items
+                            //Collections.reverse(postList);
 
-                ListView listView = (ListView) rootView.findViewById(R.id.blogList);
-                listView.setAdapter(listAdapter);
+                            ListAdapter listAdapter = new BlogAdapter(getActivity(), postList);
 
-                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                        Post post = (Post) parent.getItemAtPosition(position);
-                        String url = post.getPurl();
-                        Intent intent = new Intent(getContext(), URLDisplay.class);
-                        intent.putExtra("url", url);
-                        intent.putExtra("previous", "blog");
-                        startActivity(intent);
+                            ListView listView = (ListView) rootView.findViewById(R.id.blogList);
+                            listView.setAdapter(listAdapter);
+
+                            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                                    Post post = (Post) parent.getItemAtPosition(position);
+                                    String url = post.getUrl();
+                                    Intent intent = new Intent(getContext(), URLDisplay.class);
+                                    intent.putExtra("url", url);
+                                    intent.putExtra("previous", "blog");
+                                    startActivity(intent);
+                                }
+                            });
+                        } else {
+                            Toast.makeText(getContext(), "Status code: " + statusCode, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Post>> call, Throwable t) {
+                        Toast.makeText(getContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }

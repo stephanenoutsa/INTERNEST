@@ -40,13 +40,7 @@
         <activity
             android:name="android.internest.com.internest.Blog"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="android.internest.com.internest.YourQRCode"
             android:label="@string/title_activity_your_qrcode"
@@ -54,7 +48,13 @@
         <activity
             android:name="android.internest.com.internest.ScanCode"
             android:label="@string/title_activity_scan_code"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="android.internest.com.internest.CaptureActivityPortrait"
             android:label="@string/title_activity_capture_activity_portrait"

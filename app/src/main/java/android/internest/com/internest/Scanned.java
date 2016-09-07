@@ -1,13 +1,21 @@
 package android.internest.com.internest;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by stephnoutsa on 7/7/16.
  */
 public class Scanned {
 
     // Private variables
+    @SerializedName("id")
     int _sid;
-    String stype, sdetails;
+
+    @SerializedName("type")
+    String stype;
+
+    @SerializedName("details")
+    String sdetails;
 
     // Empty constructor
     public Scanned() {

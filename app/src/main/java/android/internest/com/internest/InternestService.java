@@ -38,12 +38,12 @@ public interface InternestService {
 
     // Start of methods for Trends
     @GET("trends")
-    Call<List<Trend>> getAllTrends();
+    Call<List<Scanned>> getAllTrends();
 
     @POST("trends")
     Call<Trend> addTrend(@Body Trend trend);
 
     @GET("trends/{trendId}")
-    Call<Trend> getTrend(@Path("trendId") int trendId);
+    Call<Scanned> getTrend(@Path("trendId") int trendId);
     // End of methods for Trends
 }

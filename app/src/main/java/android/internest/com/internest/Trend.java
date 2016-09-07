@@ -1,12 +1,20 @@
 package android.internest.com.internest;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by stephnoutsa on 8/6/16.
  */
 public class Trend {
 
     // Private variables
-    int _tid, tcount;
+    @SerializedName("id")
+    int _tid;
+
+    @SerializedName("count")
+    int tcount;
+
+    @SerializedName("details")
     String sdetails;
 
     // Empty constructor

@@ -18,9 +18,20 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/colorWhite"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/MyOptionsMenuStyle" />
+            android:theme="@style/MyToolbarStyle"
+            app:popupTheme="@style/MyOptionsMenuStyle">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/app_name"
+                android:textSize="30sp"
+                android:id="@+id/toolbarTitle" />
+
+        </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 

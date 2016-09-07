@@ -65,7 +65,7 @@
     },
     {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/zxing_barcode_scanner.xml",
-        "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.journeyapps/zxing-android-embedded/3.2.0/res/layout/zxing_barcode_scanner.xml"
+        "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.journeyapps/zxing-android-embedded/3.3.0/res/layout/zxing_barcode_scanner.xml"
     },
     {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/activity_capture_activity_portrait.xml",
@@ -233,7 +233,7 @@
     },
     {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/zxing_capture.xml",
-        "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.journeyapps/zxing-android-embedded/3.2.0/res/layout/zxing_capture.xml"
+        "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.journeyapps/zxing-android-embedded/3.3.0/res/layout/zxing_capture.xml"
     },
     {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",

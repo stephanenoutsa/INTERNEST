@@ -2756,6 +2756,7 @@ containing a value of this type.
         public static final int url_placeholder_text=0x7f070058;
         public static final int url_simple=0x7f070059;
         public static final int user_created=0x7f07005a;
+        public static final int user_not_created=0x7f07005b;
         public static final int zxing_app_name=0x7f070014;
         public static final int zxing_button_ok=0x7f070015;
         public static final int zxing_msg_camera_framework_bug=0x7f070016;

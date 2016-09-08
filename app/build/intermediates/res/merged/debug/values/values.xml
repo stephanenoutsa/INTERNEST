@@ -381,6 +381,7 @@
     <string name="url_placeholder_text">http://</string>
     <string name="url_simple">web link</string>
     <string name="user_created">Account created</string>
+    <string name="user_not_created">The account could not be created. Please try again later</string>
     <string name="zxing_app_name">Barcode Scanner</string>
     <string name="zxing_button_ok">OK</string>
     <string name="zxing_msg_camera_framework_bug">Sorry, the Android camera encountered a problem. You may need to restart the device.</string>

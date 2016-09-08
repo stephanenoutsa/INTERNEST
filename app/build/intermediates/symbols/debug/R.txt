@@ -972,6 +972,7 @@ int string url_content_type 0x7f070057
 int string url_placeholder_text 0x7f070058
 int string url_simple 0x7f070059
 int string user_created 0x7f07005a
+int string user_not_created 0x7f07005b
 int string zxing_app_name 0x7f070014
 int string zxing_button_ok 0x7f070015
 int string zxing_msg_camera_framework_bug 0x7f070016

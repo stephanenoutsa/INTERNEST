@@ -74,6 +74,11 @@ public class Trending extends Fragment {
                         if (statusCode == 200) {
                             trends = response.body();
 
+                            // Check if nothing was returned and notify user
+                            if (trends.size() == 0) {
+                                Toast.makeText(getContext(), "There are no items for now", Toast.LENGTH_SHORT).show();
+                            }
+
                             // Get the trending items into an adapter's list
                             listAdapter = new CustomAdapter(getContext(), trends);
 

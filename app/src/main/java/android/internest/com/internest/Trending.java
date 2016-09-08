@@ -90,11 +90,12 @@ public class Trending extends Fragment {
                                     new AdapterView.OnItemClickListener() {
                                         @Override
                                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                            Scanned scanned = (Scanned) parent.getItemAtPosition(position);
+
                                             TextView scanType = (TextView) view.findViewById(R.id.scanType);
-                                            TextView scanDetails = (TextView) view.findViewById(R.id.scanDetails);
 
                                             String sType = scanType.getText().toString();
-                                            final String sDetails = scanDetails.getText().toString();
+                                            final String sDetails = scanned.getSdetails();
 
                                             if (sType.equals(getString(R.string.scanned_type_text))) {
                                                 Intent intent = new Intent(getContext(), TextDisplay.class);

@@ -76,7 +76,7 @@ public class Trending extends Fragment {
 
                             // Check if nothing was returned and notify user
                             if (trends.size() == 0) {
-                                Toast.makeText(getContext(), "There are no items for now", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), getString(R.string.list_empty), Toast.LENGTH_SHORT).show();
                             }
 
                             // Get the trending items into an adapter's list

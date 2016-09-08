@@ -6,6 +6,7 @@
     <string name="share_text">Share app to..</string>
     <string name="menu_points">Points Promo</string>
     <string name="menu_contact">Contact Us</string>
+    <string name="list_empty">There are no items for now</string>
 
     <!-- Start of Fragment Names -->
     <string name="blog_fragment_text">TRACKER</string>

@@ -21,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Collections;
 import java.util.List;
@@ -63,6 +64,11 @@ public class History extends AppCompatActivity {
             public void handleMessage(Message msg) {
                 // Get all scanned items from database
                 scannedList = dbHandler.getAllScanned();
+
+                // Check if nothing has been scanned and notify user
+                if (scannedList.size() == 0) {
+                    Toast.makeText(context, getString(R.string.list_empty), Toast.LENGTH_SHORT).show();
+                }
 
                 // Reverse the order of the scanned items
                 Collections.reverse(scannedList);

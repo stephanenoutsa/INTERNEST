@@ -105,5 +105,6 @@
     <string name="gender_error">You must choose at least one gender</string>
     <string name="create_account">Create Account</string>
     <string name="user_created">Account created</string>
+    <string name="user_not_created">The account could not be created. Please try again later</string>
     <!-- End of SignUp Activity Literature -->
 </resources>

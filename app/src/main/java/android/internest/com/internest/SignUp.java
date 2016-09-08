@@ -1,5 +1,6 @@
 package android.internest.com.internest;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -15,11 +16,19 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class SignUp extends AppCompatActivity {
 
     private ShareActionProvider mShareActionProvider;
 
     MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
+    Context context = this;
+    User newUser;
     TextView numText;
     EditText numInput;
     TextView dobText;
@@ -84,9 +93,43 @@ public class SignUp extends AppCompatActivity {
         dob = dobInput.getText().toString();
 
         if (validate(num, dob, gender)) {
-            User user = new User(num, dob, gender);
+            User user = new User(num, dob, gender, 0);
+
+            // Add user to app database
             dbHandler.addUser(user);
-            Toast.makeText(this, getString(R.string.user_created), Toast.LENGTH_SHORT).show();
+
+            /**
+             * Add new user to server
+             */
+            // Trailing slash is needed
+            final String BASE_URL = "http://10.0.2.2:8080/internest/webapi/"; // Localhost value is 10.0.2.2
+
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            InternestService internestService = retrofit.create(InternestService.class);
+
+            Call<User> call = internestService.addUser(user);
+            call.enqueue(new Callback<User>() {
+                @Override
+                public void onResponse(Call<User> call, Response<User> response) {
+                    int statusCode = response.code();
+                    if (statusCode == 200) {
+                        newUser = response.body();
+
+                        Toast.makeText(context, getString(R.string.user_created), Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, getString(R.string.user_not_created), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<User> call, Throwable t) {
+                    Toast.makeText(context, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
 
             Intent i = new Intent(this, PointsPromo.class);
             i.putExtra("back", "signup");

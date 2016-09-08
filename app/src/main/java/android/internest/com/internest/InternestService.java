@@ -46,4 +46,16 @@ public interface InternestService {
     @GET("trends/{trendId}")
     Call<Scanned> getTrend(@Path("trendId") int trendId);
     // End of methods for Trends
+
+
+    // Start of methods for Users
+    @GET("users")
+    Call<List<User>> getAllUsers();
+
+    @POST("users")
+    Call<User> addUser(@Body User user);
+
+    @GET("users/{userId}")
+    Call<User> getUser(@Path("userId") int userId);
+    // End of methods for Users
 }

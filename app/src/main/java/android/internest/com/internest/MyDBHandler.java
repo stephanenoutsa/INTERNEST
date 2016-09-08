@@ -36,6 +36,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String USER_COLUMN_NUM = "number";
     public static final String USER_COLUMN_DOB = "dob";
     public static final String USER_COLUMN_GEN = "gender";
+    public static final String USER_COLUMN_PTS = "points";
 
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -74,12 +75,13 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 USER_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT " + ", " +
                 USER_COLUMN_NUM + " TEXT " + ", " +
                 USER_COLUMN_DOB + " TEXT " + ", " +
-                USER_COLUMN_GEN + " TEXT " +
+                USER_COLUMN_GEN + " TEXT " + ", " +
+                USER_COLUMN_PTS + " INTEGER " +
                 ")";
         db.execSQL(user);
 
         // Add placeholder values for User table
-        User user1 = new User("null", "null", "null");
+        User user1 = new User("null", "null", "null", 0);
         addUser(user1);
     }
 
@@ -352,6 +354,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         values.put(USER_COLUMN_NUM, String.valueOf(user.getNum()));
         values.put(USER_COLUMN_DOB, String.valueOf(user.getDob()));
         values.put(USER_COLUMN_GEN, String.valueOf(user.getGender()));
+        values.put(USER_COLUMN_PTS, String.valueOf(user.getPoints()));
         if (db == null) {
             db = getWritableDatabase();
         }
@@ -372,7 +375,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
         String num = c.getString(c.getColumnIndex(USER_COLUMN_NUM));
         String dob = c.getString(c.getColumnIndex(USER_COLUMN_DOB));
         String gender = c.getString(c.getColumnIndex(USER_COLUMN_GEN));
-        User user = new User(_uid, num, dob, gender);
+        int points = Integer.parseInt(c.getString(c.getColumnIndex(USER_COLUMN_PTS)));
+        User user = new User(_uid, num, dob, gender, points);
         try {
             return user;
         } finally {
@@ -389,7 +393,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.execSQL(query);
 
         // Add placeholder values for User table
-        User user = new User("null", "null", "null");
+        User user = new User("null", "null", "null", 0);
         addUser(user);
     }
 

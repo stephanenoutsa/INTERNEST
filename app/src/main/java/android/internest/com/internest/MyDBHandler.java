@@ -306,7 +306,9 @@ public class MyDBHandler extends SQLiteOpenHelper {
             String query1 = "SELECT * FROM " + TABLE_TRENDS + " WHERE " + TRENDS_COLUMN_COUNT + " = "
             + max + ";";
             top.remove(top.size() - 1);
-            Collections.sort(top);
+            if (top.size() > 0) {
+                Collections.sort(top);
+            }
             Cursor c1 = db.rawQuery(query1, null);
             if (c1 != null)
                 c1.moveToFirst();

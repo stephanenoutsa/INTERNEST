@@ -34,6 +34,7 @@ public class SignUp extends AppCompatActivity {
     TextView dobText;
     EditText dobInput;
     String num, dob, gender;
+    TextView genderText;
     RadioButton male, female, other;
 
     @Override
@@ -59,6 +60,8 @@ public class SignUp extends AppCompatActivity {
         dobText.setTypeface(font);
         dobInput = (EditText) findViewById(R.id.dobInput);
 
+        genderText = (TextView) findViewById(R.id.genderText);
+        genderText.setTypeface(font);
         male = (RadioButton) findViewById(R.id.maleGender);
         female = (RadioButton) findViewById(R.id.femaleGender);
         other = (RadioButton) findViewById(R.id.otherGender);

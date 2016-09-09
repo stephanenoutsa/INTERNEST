@@ -2,6 +2,8 @@ package android.internest.com.internest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 //import android.support.design.widget.FloatingActionButton;
 //import android.support.design.widget.Snackbar;
@@ -56,6 +58,21 @@ public class ScanCode extends AppCompatActivity {
         IntentResult scan = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
         if(scan != null) {
             final String contents = scan.getContents();
+
+            // Update user's points if user exists
+            User oldUser = dbHandler.getUser();
+            String num = oldUser.getNum();
+            String dob = oldUser.getDob();
+            String gender = oldUser.getGender();
+            int oldpoints = oldUser.getPoints();
+            if (num.equals("null") && dob.equals("null") && gender.equals("null") && oldpoints == 0) {
+                Toast.makeText(this, getString(R.string.no_user), Toast.LENGTH_LONG).show();
+            } else {
+                int newPoints = oldpoints + 2;
+                User newUser = new User(num, dob, gender, newPoints);
+                dbHandler.deleteUser();
+                dbHandler.addUser(newUser);
+            }
 
             if (contents != null) {
                 /**

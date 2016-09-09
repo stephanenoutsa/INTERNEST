@@ -108,5 +108,6 @@
     <string name="user_created">Account created</string>
     <string name="user_not_created">The account could not be created. Please try again later</string>
     <string name="not_connected">Connect to a network to proceed</string>
+    <string name="no_user">Go to Points Promo page to sign up and start accumulating points!</string>
     <!-- End of SignUp Activity Literature -->
 </resources>

@@ -37,6 +37,9 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String USER_COLUMN_DOB = "dob";
     public static final String USER_COLUMN_GEN = "gender";
     public static final String USER_COLUMN_PTS = "points";
+    public static final String TABLE_MADE = "made";
+    public static final String MADE_COLUMN_ID = "_mid";
+    public static final String MADE_COLUMN_NUMBER = "mnumber";
 
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -83,6 +86,16 @@ public class MyDBHandler extends SQLiteOpenHelper {
         // Add placeholder values for User table
         User user1 = new User("null", "null", "null", 0);
         addUser(user1);
+
+        String made = "CREATE TABLE " + TABLE_MADE + "(" +
+                MADE_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT " + ", " +
+                MADE_COLUMN_NUMBER + " INTEGER " +
+                ")";
+        db.execSQL(made);
+
+        // Add placeholder values for Made table
+        Made made1 = new Made(0);
+        addMade(made1);
     }
 
     @Override
@@ -395,6 +408,49 @@ public class MyDBHandler extends SQLiteOpenHelper {
         // Add placeholder values for User table
         User user = new User("null", "null", "null", 0);
         addUser(user);
+    }
+
+    // Add a new made to the Made table
+    public void addMade(Made made) {
+        ContentValues values = new ContentValues();
+        values.put(MADE_COLUMN_NUMBER, String.valueOf(made.getmNumber()));
+        if (db == null) {
+            db = getWritableDatabase();
+        }
+        db.insert(TABLE_MADE, null, values);
+    }
+
+    // Get made from Made table
+    public Made getMade() {
+        if (db == null) {
+            db = getReadableDatabase();
+        }
+        String query = "SELECT * FROM " + TABLE_MADE + " WHERE 1;";
+        Cursor c = db.rawQuery(query, null);
+        if (c == null)
+            return null;
+        c.moveToLast();
+        int _mid = Integer.parseInt(c.getString(c.getColumnIndex(MADE_COLUMN_ID)));
+        int mNumber = Integer.parseInt(c.getString(c.getColumnIndex(MADE_COLUMN_NUMBER)));
+        Made made = new Made(_mid, mNumber);
+        try {
+            return made;
+        } finally {
+            c.close();
+        }
+    }
+
+    // Delete made from Made table
+    public void deleteMade() {
+        if (db == null) {
+            db = getWritableDatabase();
+        }
+        String query = "DELETE FROM " + TABLE_MADE + " WHERE 1;";
+        db.execSQL(query);
+
+        // Add placeholder values for User table
+        Made made = new Made(0);
+        addMade(made);
     }
 
 }

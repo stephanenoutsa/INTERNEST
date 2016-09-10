@@ -47,11 +47,20 @@ public class ScanCode extends AppCompatActivity {
 
         dbHandler = new MyDBHandler(this, null, null, 1);
 
-        IntentIntegrator intentIntegrator = new IntentIntegrator(this);
-        intentIntegrator.setPrompt(getResources().getString(R.string.scanner_prompt_text));
-        intentIntegrator.setOrientationLocked(false);
-        intentIntegrator.setCaptureActivity(CaptureActivityPortrait.class);
-        intentIntegrator.initiateScan();
+        // Check if user is connected
+        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            IntentIntegrator intentIntegrator = new IntentIntegrator(this);
+            intentIntegrator.setPrompt(getResources().getString(R.string.scanner_prompt_text));
+            intentIntegrator.setOrientationLocked(false);
+            intentIntegrator.setCaptureActivity(CaptureActivityPortrait.class);
+            intentIntegrator.initiateScan();
+        } else {
+            Toast.makeText(this, getString(R.string.not_connected), Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this, Blog.class);
+            startActivity(i);
+        }
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
@@ -100,7 +109,7 @@ public class ScanCode extends AppCompatActivity {
 
                             Toast.makeText(context, newTrend.getSdetails(), Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(context, "Couldn't update server", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, getString(R.string.serverconn_error), Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -124,9 +133,9 @@ public class ScanCode extends AppCompatActivity {
                             int statusCode = response.code();
                             if (statusCode == 200) {
                                 newScanned = response.body();
-                                Toast.makeText(context, "Item added to remote database", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, getString(R.string.scan_added), Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(context, "Couldn't update server", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, getString(R.string.serverconn_error), Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -186,11 +195,5 @@ public class ScanCode extends AppCompatActivity {
             Toast.makeText(this, getString(R.string.empty_scan),
                     Toast.LENGTH_LONG).show();
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        Intent i = new Intent(this, Blog.class);
-        startActivity(i);
     }
 }

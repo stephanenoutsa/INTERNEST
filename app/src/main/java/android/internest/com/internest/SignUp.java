@@ -3,6 +3,8 @@ package android.internest.com.internest;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -96,47 +98,54 @@ public class SignUp extends AppCompatActivity {
         dob = dobInput.getText().toString();
 
         if (validate(num, dob, gender)) {
-            User user = new User(num, dob, gender, 0);
+            // Check if user is connected
+            ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+            if (networkInfo != null && networkInfo.isConnected()) {
+                User user = new User(num, dob, gender, 0);
 
-            // Add user to app database
-            dbHandler.addUser(user);
+                // Add user to app database
+                dbHandler.addUser(user);
 
-            /**
-             * Add new user to server
-             */
-            // Trailing slash is needed
-            final String BASE_URL = "http://10.0.2.2:8080/tracker/webapi/"; // Localhost value is 10.0.2.2
+                /**
+                 * Add new user to server
+                 */
+                // Trailing slash is needed
+                final String BASE_URL = "http://10.0.2.2:8080/tracker/webapi/"; // Localhost value is 10.0.2.2
 
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(BASE_URL)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
 
-            InternestService internestService = retrofit.create(InternestService.class);
+                InternestService internestService = retrofit.create(InternestService.class);
 
-            Call<User> call = internestService.addUser(user);
-            call.enqueue(new Callback<User>() {
-                @Override
-                public void onResponse(Call<User> call, Response<User> response) {
-                    int statusCode = response.code();
-                    if (statusCode == 200) {
-                        newUser = response.body();
+                Call<User> call = internestService.addUser(user);
+                call.enqueue(new Callback<User>() {
+                    @Override
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        int statusCode = response.code();
+                        if (statusCode == 200) {
+                            newUser = response.body();
 
-                        Toast.makeText(context, getString(R.string.user_created), Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(context, getString(R.string.user_not_created), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, getString(R.string.user_created), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(context, getString(R.string.user_not_created), Toast.LENGTH_SHORT).show();
+                        }
                     }
-                }
 
-                @Override
-                public void onFailure(Call<User> call, Throwable t) {
-                    Toast.makeText(context, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
+                    @Override
+                    public void onFailure(Call<User> call, Throwable t) {
+                        Toast.makeText(context, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
 
-            Intent i = new Intent(this, PointsPromo.class);
-            i.putExtra("back", "signup");
-            startActivity(i);
+                Intent i = new Intent(this, PointsPromo.class);
+                i.putExtra("back", "signup");
+                startActivity(i);
+            } else {
+                Toast.makeText(context, getString(R.string.not_connected), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

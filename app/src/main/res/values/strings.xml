@@ -39,6 +39,7 @@
     <string name="text_placeholder_text">Enter text here</string>
     <string name="make_code_button_text">Generate QR Code</string>
     <string name="submit_error">You must enter some content in order to generate a QR code</string>
+    <string name="get_points">You need to get more points\nVisit the Points Promo page for more info</string>
     <!-- End of MakeCode Fragment Literature -->
 
     <!-- Start of YourQRCode Activity Literature -->
@@ -56,6 +57,9 @@
 
     <!-- Start of ScanCode Activity Literature -->
     <string name="title_activity_scan_code">Scan QR Code</string>
+    <string name="no_user">Go to Points Promo page to sign up and start accumulating points!</string>
+    <string name="scan_added">Item added to remote database</string>
+    <string name="serverconn_error">Couldn't update server</string>
     <!-- End of ScanCode Activity Literature -->
 
     <!-- Start of CaptureActivityPortrait Activity Literature -->
@@ -108,6 +112,5 @@
     <string name="user_created">Account created</string>
     <string name="user_not_created">The account could not be created. Please try again later</string>
     <string name="not_connected">Connect to a network to proceed</string>
-    <string name="no_user">Go to Points Promo page to sign up and start accumulating points!</string>
     <!-- End of SignUp Activity Literature -->
 </resources>

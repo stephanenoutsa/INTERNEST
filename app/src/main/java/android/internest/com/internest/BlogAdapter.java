@@ -50,7 +50,11 @@ public class BlogAdapter extends ArrayAdapter<Post> {
         blogExcerpt.setTypeface(font);
         blogExcerpt.setTextColor(ContextCompat.getColor(getContext(), R.color.colorBlack));
 
-        Picasso.with(context).load(thumbnail).placeholder(R.drawable.placeholder).into(blogThumbnail);
+        Picasso.with(context)
+                .load(thumbnail)
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.placeholder)
+                .into(blogThumbnail);
         blogTitle.setText(title);
         String trimmed = trimText(body);
         blogExcerpt.setText(trimmed);

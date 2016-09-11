@@ -359,11 +359,13 @@
     <string name="saved_image_directory">Internest Images</string>
     <string name="saved_image_format">.png</string>
     <string name="saved_image_title_prepend">internest-scan-</string>
+    <string name="scan_added">Item added to remote database</string>
     <string name="scan_fragment_text">SCAN</string>
     <string name="scanned_icon_desc">Type of item scanned</string>
     <string name="scanned_type_text">text</string>
     <string name="scanned_type_url">url</string>
     <string name="scanner_prompt_text">Scan QR Code</string>
+    <string name="serverconn_error">Couldn\'t update server</string>
     <string name="share_link">https://play.google.com/store/apps/details?id=android.internest.com.internest</string>
     <string name="share_text">Share app to..</string>
     <string name="status_bar_notification_info_overflow">999+</string>

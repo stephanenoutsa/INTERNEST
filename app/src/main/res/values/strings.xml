@@ -59,7 +59,7 @@
     <string name="title_activity_scan_code">Scan QR Code</string>
     <string name="no_user">Go to Points Promo page to sign up and start accumulating points!</string>
     <string name="scan_added">Item added to remote database</string>
-    <string name="serverconn_error">Couldn't update server</string>
+    <string name="serverconn_error">Couldn\'t update server</string>
     <!-- End of ScanCode Activity Literature -->
 
     <!-- Start of CaptureActivityPortrait Activity Literature -->

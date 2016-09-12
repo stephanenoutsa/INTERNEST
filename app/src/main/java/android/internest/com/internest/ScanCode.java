@@ -90,7 +90,7 @@ public class ScanCode extends AppCompatActivity {
                 Trend trend = new Trend(contents);
 
                 // Trailing slash is needed
-                final String BASE_URL = "http://10.0.2.2:8080/tracker/webapi/"; // Localhost value is 10.0.2.2
+                final String BASE_URL = "http://192.168.43.170:8080/tracker/webapi/"; // Localhost value is 10.0.2.2
 
                 Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl(BASE_URL)

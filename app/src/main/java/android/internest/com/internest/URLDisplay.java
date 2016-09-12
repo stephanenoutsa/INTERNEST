@@ -9,6 +9,7 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
@@ -20,6 +21,7 @@ public class URLDisplay extends AppCompatActivity {
     private ShareActionProvider mShareActionProvider;
 
     String url, previous = "";
+    WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,7 @@ public class URLDisplay extends AppCompatActivity {
         previous = getIntent().getExtras().getString("previous");
 
         // Enable javascript for webview and display webpage
-        WebView webView = (WebView) findViewById(R.id.webView);
+        webView = (WebView) findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setAllowContentAccess(true);
         webView.getSettings().setAllowFileAccess(true);
@@ -67,16 +69,26 @@ public class URLDisplay extends AppCompatActivity {
         });
     }
 
+    // Navigate within WebView
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        if (previous.equals("blog")) {
-            Intent intent = new Intent(this, Blog.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            startActivity(intent);
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // Check if the key event was the Back button and if there's history
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()) {
+            webView.goBack();
+            return true;
         }
+        else if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (previous.equals("blog")) {
+                Intent intent = new Intent(this, Blog.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
+                return true;
+            }
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 
     ////////////Intents for menu items////////////

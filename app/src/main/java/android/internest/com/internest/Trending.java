@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +19,6 @@ import android.widget.Toast;
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -29,6 +30,7 @@ public class Trending extends Fragment {
     List<Scanned> trends;
     ListAdapter listAdapter;
     ListView listView;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     public Trending() {
         // Required empty constructor
@@ -66,8 +68,8 @@ public class Trending extends Fragment {
 
                 InternestService internestService = retrofit.create(InternestService.class);
 
-                Call<List<Scanned>> call = internestService.getAllTrends();
-                call.enqueue(new retrofit2.Callback<List<Scanned>>() {
+                final Call<List<Scanned>> call = internestService.getAllTrends();
+                call.clone().enqueue(new retrofit2.Callback<List<Scanned>>() {
                     @Override
                     public void onResponse(Call<List<Scanned>> call, Response<List<Scanned>> response) {
                         int statusCode = response.code();
@@ -119,6 +121,87 @@ public class Trending extends Fragment {
                     @Override
                     public void onFailure(Call<List<Scanned>> call, Throwable t) {
                         Toast.makeText(getContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                // Instantiate refreshLayout
+                swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout);
+
+                // Set color schemes for SwipeRefreshLayout
+                swipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getContext(), R.color.colorAccent),
+                        ContextCompat.getColor(getContext(), R.color.colorPrimaryLight),
+                        ContextCompat.getColor(getContext(), R.color.colorPrimary),
+                        ContextCompat.getColor(getContext(), R.color.colorPrimaryDark));
+
+                /**
+                 * Implement {@link SwipeRefreshLayout.OnRefreshListener}. When users do the "swipe to
+                 * refresh" gesture, SwipeRefreshLayout invokes
+                 * {@link SwipeRefreshLayout.OnRefreshListener#onRefresh onRefresh()}. In
+                 * {@link SwipeRefreshLayout.OnRefreshListener#onRefresh onRefresh()}, call a method that
+                 * refreshes the content. Call the same method in response to the Refresh action from the
+                 * toolbar bar.
+                 */
+                swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        call.clone().enqueue(new retrofit2.Callback<List<Scanned>>() {
+                            @Override
+                            public void onResponse(Call<List<Scanned>> call, Response<List<Scanned>> response) {
+                                int statusCode = response.code();
+                                if (statusCode == 200) {
+                                    trends = response.body();
+                                    swipeRefreshLayout.setRefreshing(false);
+                                    Toast.makeText(getContext(), "List updated", Toast.LENGTH_SHORT).show();
+
+                                    // Check if nothing was returned and notify user
+                                    if (trends.size() == 0) {
+                                        Toast.makeText(getContext(), getString(R.string.list_empty), Toast.LENGTH_SHORT).show();
+                                    }
+
+                                    // Get the trending items into an adapter's list
+                                    listAdapter = new CustomAdapter(getContext(), trends);
+
+                                    // Set the adapter to display the scanned items
+                                    listView = (ListView) rootView.findViewById(R.id.trends);
+                                    listView.setAdapter(listAdapter);
+
+                                    listView.setOnItemClickListener(
+                                            new AdapterView.OnItemClickListener() {
+                                                @Override
+                                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                                    Scanned scanned = (Scanned) parent.getItemAtPosition(position);
+
+                                                    TextView scanType = (TextView) view.findViewById(R.id.scanType);
+
+                                                    String sType = scanType.getText().toString();
+                                                    final String sDetails = scanned.getSdetails();
+
+                                                    if (sType.equals(getString(R.string.scanned_type_text))) {
+                                                        Intent intent = new Intent(getContext(), TextDisplay.class);
+                                                        intent.putExtra("text", sDetails);
+                                                        intent.putExtra("previous", "trending");
+                                                        startActivity(intent);
+                                                    } else if (sType.equals(getString(R.string.url_simple))) {
+                                                        Intent intent = new Intent(getContext(), URLDisplay.class);
+                                                        intent.putExtra("url", sDetails);
+                                                        intent.putExtra("previous", "trending");
+                                                        startActivity(intent);
+                                                    }
+                                                }
+                                            }
+                                    );
+                                } else {
+                                    swipeRefreshLayout.setRefreshing(false);
+                                    Toast.makeText(getContext(), "Unable to communicate with server", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<List<Scanned>> call, Throwable t) {
+                                swipeRefreshLayout.setRefreshing(false);
+                                Toast.makeText(getContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     }
                 });
             }

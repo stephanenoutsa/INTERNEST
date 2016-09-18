@@ -15,8 +15,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class URLDisplay extends AppCompatActivity {
@@ -25,6 +27,7 @@ public class URLDisplay extends AppCompatActivity {
 
     String url, previous = "";
     WebView webView;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,9 @@ public class URLDisplay extends AppCompatActivity {
 
         url = getIntent().getExtras().getString("url");
         previous = getIntent().getExtras().getString("previous");
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
 
         // Enable javascript for webview and display webpage
         webView = (WebView) findViewById(R.id.webView);
@@ -81,12 +87,18 @@ public class URLDisplay extends AppCompatActivity {
                         return false;
                     }
 
-                } else {
-                    view.loadUrl(url);
-                    return true;
                 }
+
+                return false;
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                progressBar.setVisibility(View.GONE);
             }
         });
+
     }
 
     // Navigate within WebView

@@ -1,7 +1,10 @@
 package android.internest.com.internest;
 
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 //import android.support.design.widget.FloatingActionButton;
 //import android.support.design.widget.Snackbar;
@@ -57,14 +60,31 @@ public class URLDisplay extends AppCompatActivity {
         webView.getSettings().setAllowFileAccess(true);
         webView.getSettings().setDatabaseEnabled(true);
         webView.getSettings().setDomStorageEnabled(true);
-        webView.getSettings().setUserAgentString("Mozilla/5.0 (Linux; U; Android 2.0; en-us; " +
-                "Droid Build/ESD20) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17");
+        webView.getSettings().setUserAgentString("Mozilla/5.0 (Linux; U; Android 4.4; Nexus 5 " +
+                "Build/_BuildID_) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0" +
+                " Mobile Safari/537.36");
         webView.loadUrl(url);
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
+                if (Uri.parse(url).getScheme().equals("market")) {
+                    try {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse(url));
+                        Activity host = (Activity) view.getContext();
+                        host.startActivity(intent);
+                        return true;
+                    } catch (ActivityNotFoundException e) {
+                        // Google Play app is not installed, you may want to open the app store link
+                        Uri uri = Uri.parse(url);
+                        view.loadUrl("https://play.google.com/store/apps/" + uri.getHost() + "?" + uri.getQuery());
+                        return false;
+                    }
+
+                } else {
+                    view.loadUrl(url);
+                    return true;
+                }
             }
         });
     }

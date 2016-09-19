@@ -27,7 +27,7 @@ public class MakeCode extends Fragment implements AdapterView.OnItemSelectedList
     String placeholder;
     Button makeCodeButton;
     EditText contents;
-    TextView chooseContent, enterContent;
+    TextView generateHere, chooseContent, enterContent;
 
     public static MakeCode newInstance() {
         MakeCode fragment = new MakeCode();
@@ -46,9 +46,11 @@ public class MakeCode extends Fragment implements AdapterView.OnItemSelectedList
         View rootView = inflater.inflate(R.layout.fragment_make_code, container, false);
 
         // Change text font
+        generateHere = (TextView) rootView.findViewById(R.id.generateHere);
         chooseContent = (TextView) rootView.findViewById(R.id.chooseContent);
         enterContent = (TextView) rootView.findViewById(R.id.enterContent);
         Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Magnificent.ttf");
+        generateHere.setTypeface(font);
         chooseContent.setTypeface(font);
         enterContent.setTypeface(font);
 

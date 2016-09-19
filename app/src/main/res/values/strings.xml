@@ -27,6 +27,7 @@
     <!-- End of Scan Fragment Literature -->
 
     <!-- Start of MakeCode Fragment Literature -->
+    <string name="generate_here">Create your own codes for your Promos, websites and CVs</string>
     <string-array name="content_types_array">
         <item>URL</item>
         <item>Text</item>

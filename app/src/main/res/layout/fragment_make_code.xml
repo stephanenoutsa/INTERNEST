@@ -19,14 +19,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:background="@color/colorBlack"
+                android:background="@color/colorPrimary"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/colorWhite"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:padding="8dp"
+                android:text="@string/generate_here"
+                android:id="@+id/generateHere" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@color/colorGray"
                 android:textColor="@color/colorWhite"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/choose_content_text"
                 android:id="@+id/chooseContent"
-                android:layout_alignParentTop="true"
+                android:layout_below="@+id/generateHere"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="39dp" />
+                android:padding="8dp"
+                android:layout_marginTop="0dp" />
 
             <Spinner
                 android:layout_width="wrap_content"
@@ -35,7 +49,7 @@
                 android:popupBackground="@color/colorPrimary"
                 android:layout_below="@+id/chooseContent"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:dropDownSelector="@color/colorPrimary"
                 android:dropDownWidth="100dp"/>
 
@@ -43,23 +57,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:background="@color/colorBlack"
+                android:background="@color/colorGray"
                 android:textColor="@color/colorWhite"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/enter_content_text"
                 android:id="@+id/enterContent"
                 android:layout_below="@+id/spinner"
-                android:layout_marginTop="39dp"
+                android:padding="8dp"
+                android:layout_marginTop="20dp"
                 android:layout_centerHorizontal="true" />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxLines="3"
                 android:inputType="textMultiLine"
                 android:ems="10"
                 android:id="@+id/contents"
+                android:background="@drawable/rectangular_shape"
                 android:textColor="@color/colorBlack"
                 android:layout_below="@+id/enterContent"
+                android:padding="5dp"
                 android:layout_marginTop="20dp"
                 android:layout_centerHorizontal="true" />
 
@@ -77,7 +95,7 @@
                 android:textColor="@color/colorTextPrimary"
                 android:layout_centerHorizontal="true"
                 android:padding="5dp"
-                android:layout_marginTop="38dp" />
+                android:layout_marginTop="30dp" />
 
         </RelativeLayout>
 

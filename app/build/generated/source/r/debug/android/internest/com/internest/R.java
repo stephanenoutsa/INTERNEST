@@ -2382,16 +2382,17 @@ containing a value of this type.
         public static final int fried_plantains=0x7f020050;
         public static final int icon=0x7f020051;
         public static final int link=0x7f020052;
-        public static final int notification_template_icon_bg=0x7f02005c;
+        public static final int notification_template_icon_bg=0x7f02005d;
         public static final int placeholder=0x7f020053;
         public static final int qr=0x7f020054;
         public static final int rectangular_shape=0x7f020055;
         public static final int scan=0x7f020056;
-        public static final int tab_color_selector=0x7f020057;
-        public static final int text=0x7f020058;
-        public static final int trending=0x7f020059;
-        public static final int twitter_icon=0x7f02005a;
-        public static final int web_icon=0x7f02005b;
+        public static final int shadow_borders=0x7f020057;
+        public static final int tab_color_selector=0x7f020058;
+        public static final int text=0x7f020059;
+        public static final int trending=0x7f02005a;
+        public static final int twitter_icon=0x7f02005b;
+        public static final int web_icon=0x7f02005c;
     }
     public static final class id {
         public static final int action0=0x7f0e00ab;

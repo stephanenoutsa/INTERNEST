@@ -37,6 +37,7 @@
     <color name="colorAccent">#4EBDFF</color>
     <color name="colorBackground">#EAEAEA</color>
     <color name="colorBlack">#000</color>
+    <color name="colorGray">#5B5D65</color>
     <color name="colorPrimary">#126390</color>
     <color name="colorPrimaryDark">#0E4061</color>
     <color name="colorPrimaryLight">#1A82BF</color>

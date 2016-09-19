@@ -9,5 +9,6 @@
     <color name="colorSelectedTab">#FFF</color>
     <color name="colorBlack">#000</color>
     <color name="colorWhite">#FFF</color>
+    <color name="colorGray">#5B5D65</color>
     <color name="colorBackground">#EAEAEA</color>
 </resources>

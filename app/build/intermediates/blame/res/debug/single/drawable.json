@@ -36,6 +36,10 @@
         "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_switch_thumb_material.xml"
     },
     {
+        "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/drawable/facebook_icon.png",
+        "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/drawable/facebook_icon.png"
+    },
+    {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_light.xml",
         "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_list_selector_holo_light.xml"
     },
@@ -56,6 +60,10 @@
         "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
     },
     {
+        "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/drawable/web_icon.jpg",
+        "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/drawable/web_icon.jpg"
+    },
+    {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/drawable/abc_btn_default_mtrl_shape.xml",
         "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_btn_default_mtrl_shape.xml"
     },
@@ -74,6 +82,10 @@
     {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_dark.xml",
         "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/drawable/abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/drawable/twitter_icon.png",
+        "source": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/src/main/res/drawable/twitter_icon.png"
     },
     {
         "merged": "/home/stephnoutsa/AndroidStudioProjects/INTERNEST/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",

@@ -323,6 +323,7 @@
     <string name="choose_content_text">Choose Content Type</string>
     <string name="code_contents">Contents: </string>
     <string name="code_format">\nFormat: </string>
+    <string name="contact_here">Contact us using the links below:</string>
     <string name="create_account">Create Account</string>
     <string name="delete_cancel">Cancel</string>
     <string name="delete_ok">Yes</string>
@@ -333,6 +334,7 @@
     <string name="dob_label">Date of Birth:</string>
     <string name="empty_scan">Nothing to display</string>
     <string name="enter_content_text">Enter Content to be Encoded</string>
+    <string name="facebook_desc">Facebook icon</string>
     <string name="filenotfound_error">File not found. Please try again.</string>
     <string name="gender_error">You must choose at least one gender</string>
     <string name="gender_female">Female</string>
@@ -385,11 +387,13 @@
     <string name="title_activity_urldisplay">Internest</string>
     <string name="title_activity_your_qrcode">Your QR Code</string>
     <string name="trending_fragment_text">TRENDING</string>
+    <string name="twitter_desc">Twitter icon</string>
     <string name="url_content_type">URL</string>
     <string name="url_placeholder_text">http://</string>
     <string name="url_simple">web link</string>
     <string name="user_created">Account created</string>
     <string name="user_not_created">The account could not be created. Please try again later</string>
+    <string name="web_desc">Web icon</string>
     <string name="zxing_app_name">Barcode Scanner</string>
     <string name="zxing_button_ok">OK</string>
     <string name="zxing_msg_camera_framework_bug">Sorry, the Android camera encountered a problem. You may need to restart the device.</string>

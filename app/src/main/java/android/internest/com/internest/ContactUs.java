@@ -9,6 +9,7 @@ import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 public class ContactUs extends AppCompatActivity {
@@ -29,6 +30,27 @@ public class ContactUs extends AppCompatActivity {
 
         // Set navigation icon
         toolbar.setNavigationIcon(R.drawable.icon);
+    }
+
+    public void onClickWeb(View view) {
+        Intent intent = new Intent(this, URLDisplay.class);
+        intent.putExtra("url", "http://www.google.com/");
+        intent.putExtra("previous", "contact");
+        startActivity(intent);
+    }
+
+    public void onClickTwitter(View view) {
+        Intent intent = new Intent(this, URLDisplay.class);
+        intent.putExtra("url", "http://www.twitter.com/");
+        intent.putExtra("previous", "contact");
+        startActivity(intent);
+    }
+
+    public void onClickFacebook(View view) {
+        Intent intent = new Intent(this, URLDisplay.class);
+        intent.putExtra("url", "http://www.facebook.com/");
+        intent.putExtra("previous", "contact");
+        startActivity(intent);
     }
 
     ////////////Intents for menu items////////////

@@ -9,4 +9,80 @@
     tools:context="android.internest.com.internest.ContactUs"
     tools:showIn="@layout/activity_contact_us">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/contact_here"
+        android:textColor="@color/colorWhite"
+        android:id="@+id/contactHere"
+        android:background="@color/colorGray"
+        android:padding="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:id="@+id/facebookRow"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/contactHere"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:onClick="onClickFacebook">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/facebook"
+            android:contentDescription="@string/facebook_desc"
+            android:src="@drawable/facebook_icon"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/twitterRow"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/facebookRow"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:onClick="onClickTwitter">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/twitter"
+            android:contentDescription="@string/twitter_desc"
+            android:src="@drawable/twitter_icon"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/webRow"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/twitterRow"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:onClick="onClickWeb">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/web"
+            android:contentDescription="@string/web_desc"
+            android:src="@drawable/web_icon"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
 </RelativeLayout>

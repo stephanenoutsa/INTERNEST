@@ -15,6 +15,7 @@ import android.widget.TextView;
 public class ContactUs extends AppCompatActivity {
 
     private ShareActionProvider mShareActionProvider;
+    TextView contactHere;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,11 @@ public class ContactUs extends AppCompatActivity {
 
         // Set navigation icon
         toolbar.setNavigationIcon(R.drawable.icon);
+
+        contactHere = (TextView) findViewById(R.id.contactHere);
+        Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/Magnificent.ttf");
+        contactHere.setTypeface(font);
+
     }
 
     public void onClickWeb(View view) {

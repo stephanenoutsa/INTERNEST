@@ -48,7 +48,7 @@ public class TextDisplay extends AppCompatActivity {
 
         TextView textAnnouncer = (TextView) findViewById(R.id.textAnnouncer);
         TextView textDisplayed = (TextView) findViewById(R.id.textDisplayed);
-        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Magnificent.ttf");
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/bariol_regular_italic-webfont.ttf");
         textAnnouncer.setTypeface(font);
         textDisplayed.setTypeface(font);
         textDisplayed.setText(text);

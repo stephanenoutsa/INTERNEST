@@ -54,7 +54,7 @@ public class SignUp extends AppCompatActivity {
         // Set navigation icon
         toolbar.setNavigationIcon(R.drawable.icon);
 
-        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Magnificent.ttf");
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/bariol_regular_italic-webfont.ttf");
         numText = (TextView) findViewById(R.id.numText);
         numText.setTypeface(font);
         numInput = (EditText) findViewById(R.id.numInput);

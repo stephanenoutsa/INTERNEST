@@ -33,7 +33,7 @@ public class ContactUs extends AppCompatActivity {
         toolbar.setNavigationIcon(R.drawable.icon);
 
         contactHere = (TextView) findViewById(R.id.contactHere);
-        Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/Magnificent.ttf");
+        Typeface font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/bariol_regular_italic-webfont.ttf");
         contactHere.setTypeface(font);
 
     }

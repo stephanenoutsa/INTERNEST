@@ -44,7 +44,7 @@ public class BlogAdapter extends ArrayAdapter<Post> {
         TextView blogTitle = (TextView) customView.findViewById(R.id.blogTitle);
         TextView blogExcerpt = (TextView) customView.findViewById(R.id.blogExcerpt);
 
-        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Magnificent.ttf");
+        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/bariol_regular_italic-webfont.ttf");
         blogTitle.setTypeface(font, Typeface.BOLD);
         blogTitle.setTextColor(ContextCompat.getColor(getContext(), R.color.colorBlack));
         blogExcerpt.setTypeface(font);

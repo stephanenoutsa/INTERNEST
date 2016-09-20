@@ -49,7 +49,7 @@ public class MakeCode extends Fragment implements AdapterView.OnItemSelectedList
         generateHere = (TextView) rootView.findViewById(R.id.generateHere);
         chooseContent = (TextView) rootView.findViewById(R.id.chooseContent);
         enterContent = (TextView) rootView.findViewById(R.id.enterContent);
-        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Magnificent.ttf");
+        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/bariol_regular_italic-webfont.ttf");
         generateHere.setTypeface(font);
         chooseContent.setTypeface(font);
         enterContent.setTypeface(font);

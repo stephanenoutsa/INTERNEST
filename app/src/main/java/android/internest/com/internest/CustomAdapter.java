@@ -29,7 +29,7 @@ class CustomAdapter extends ArrayAdapter<Scanned> {
         TextView scanType = (TextView) customView.findViewById(R.id.scanType);
         TextView scanDetails = (TextView) customView.findViewById(R.id.scanDetails);
 
-        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Magnificent.ttf");
+        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/bariol_regular_italic-webfont.ttf");
         scanType.setTypeface(font, Typeface.BOLD);
         scanType.setTextColor(ContextCompat.getColor(getContext(), R.color.colorBlack));
         scanDetails.setTypeface(font);
